@@ -19,29 +19,36 @@ const useStyles = createUseStyles({
   pre__order: {
     gridColumn: "1 / span 2",
     position: "relative",
+    cursor:"pointer"
   },
   sayu: {
     gridColumn: "1 / span 2",
     position: "relative",
+    cursor:"pointer"
   },
   takagi:{
     gridColumn: "3 / span 2",
     position: "relative",
+    cursor:"pointer"
   },
   in__stock: {
     gridColumn: "3 / span 2",
     position: "relative",
+    cursor:"pointer"
   },
   kanojou:{
     gridColumn: "5 / span 2",
     position: "relative",  
+    cursor:"pointer"
   },
   best__girl: {
     gridColumn: "5 / span 2",
     position: "relative",
+    cursor:"pointer"
   },
   genshin: {
     gridColumn: "1 / span 3",
+    cursor:"pointer",
     position: "relative",
     "&  img": {
       width: "100%",
@@ -49,6 +56,7 @@ const useStyles = createUseStyles({
   },
   pandoru: {
     gridColumn: "4 / span 3",
+    cursor:"pointer",
     position: "relative",
     "& > div": {
       width: "100% !important",
