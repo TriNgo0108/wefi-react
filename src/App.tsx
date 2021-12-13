@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Content, MainHeader,Slider } from './components';
+import { ChooseUs, Content, MainHeader,Slider } from './components';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <MainHeader/>
       <Slider/>
       <Content/>
+      <ChooseUs/>
     </div>
   );
 }

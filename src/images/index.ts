@@ -11,6 +11,9 @@ import genshin from "../images/genshin.jpg";
 import sayu from "../images/sayu.jpg";
 import kanojou from "../images/kanojou.jpg";
 import takagi from "../images/takagi.jpg";
+import japan from "../images/japan.png";
+import rating from "../images/rating.png";
+import free from "../images/free.png";
 export {
   slider_1,
   slider_2,
@@ -25,4 +28,7 @@ export {
   sayu,
   kanojou,
   takagi,
+  japan,
+  rating,
+  free
 };
