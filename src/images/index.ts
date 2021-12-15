@@ -16,6 +16,8 @@ import rating from "./rating.png";
 import free from "./free.png";
 import footer_background from"../images/footer_background.png";
 import footer_image from "./footer_image.png";
+import background from "./background.png";
+import logo from "./logo.png"
 export {
   slider_1,
   slider_2,
@@ -34,5 +36,7 @@ export {
   rating,
   free,
   footer_background,
-  footer_image
+  footer_image,
+  background,
+  logo
 };

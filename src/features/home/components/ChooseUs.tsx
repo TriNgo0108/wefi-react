@@ -1,28 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { free, japan, rating } from "../../../images";
-;
-
-// /* z-index: 10; */
-// content: "";
-// height: 3px;
-// top: 6px;
-// left: 14px;
-// right: 0;
-// bottom: 14px;
-// width: 40%;
-// background: red;
-// position: absolute;
-/* z-index: 10; */
-// content: "";
-// height: 3px;
-// top: 6px;
-// left: 14px;
-// right: 0;
-// bottom: 14px;
-// width: 40%;
-// background: red;
-// position: absolute;
+import { free, japan, rating } from "images";
 
 const useStyles = createUseStyles({
   grid: {

@@ -2,7 +2,7 @@ import React from "react";
 import {
   Footer,
   MainHeader,
-} from "../../components";
+} from "components";
 import { ChooseUs, Content, Slider } from "./components";
 
 const HomePage: React.FC = () => {

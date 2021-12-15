@@ -1,9 +1,9 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { footer_background, footer_image } from "../images";
 import { FaFacebook } from "react-icons/fa";
 import { AiFillTwitterCircle, AiFillInstagram } from "react-icons/ai";
 import { BsTelegram } from "react-icons/bs";
+import { footer_background, footer_image } from "images";
 const useStyles = createUseStyles({
   footer: {
     marginTop: "10px",

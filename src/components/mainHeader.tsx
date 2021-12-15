@@ -1,10 +1,9 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
-import logo from "../images/logo.png";
-import background from "../images/background.png";
 import { GoSearch } from "react-icons/go";
 import { BiUser,BiCart } from "react-icons/bi";
+import { background, logo } from "images";
 const useStyles = createUseStyles({
     top__header:{
         height:"10vh",
