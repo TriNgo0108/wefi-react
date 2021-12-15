@@ -1,7 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import ReactPlayer from "react-player";
-import { best_girl, genshin, in_stock, kanojou, preorder, sayu, takagi } from "../images";
+import { best_girl, genshin, in_stock, kanojou, preorder, sayu, takagi } from "../../../images";
 
 const useStyles = createUseStyles({
   content: {

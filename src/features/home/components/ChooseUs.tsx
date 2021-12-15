@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { free, japan, rating } from "../images";
+import { free, japan, rating } from "../../../images";
+;
 
 // /* z-index: 10; */
 // content: "";

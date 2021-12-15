@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import "swiper/swiper-bundle.min.css";
 import SwiperCore, {EffectCreative,Autoplay,Navigation} from 'swiper';
 // import 'swiper/css';
-import { slider_1,slider_2,slider_3,slider_4,slider_5,slider_6 } from "../images";
+import { slider_1,slider_2,slider_3,slider_4,slider_5,slider_6 } from "../../../images";
 SwiperCore.use([EffectCreative,Autoplay,Navigation]);
 const useStyles = createUseStyles({
     image__slider:{

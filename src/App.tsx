@@ -1,15 +1,16 @@
-import React from 'react';
-import './App.css';
-import { ChooseUs, Content, Footer, MainHeader,Slider } from './components';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./features/home/HomePage";
 
 function App() {
   return (
     <div className="App">
-      <MainHeader/>
-      <Slider/>
-      <Content/>
-      <ChooseUs/>
-      <Footer/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
