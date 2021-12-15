@@ -89,7 +89,7 @@ const useStyles = createUseStyles({
       height: "45px",
       backgroundColor: "#ffffff",
       border: "1px #fab818 solid",
-      color: "#fab818",
+      color: "#000",
       "&:focus-visible": {
         outline: "unset",
       },
