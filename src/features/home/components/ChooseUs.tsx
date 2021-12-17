@@ -1,13 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { free, japan, rating } from "images";
-
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import SwiperCore, { Autoplay, Pagination } from "swiper";
+SwiperCore.use([Autoplay, Pagination]);
 const useStyles = createUseStyles({
   grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(3,1fr)",
-    justifyItems: "center",
-    gridGap: "20px",
     margin: "10px",
     "& img": {
       width: "60%",
@@ -15,6 +13,11 @@ const useStyles = createUseStyles({
     },
     "& p": {
       maxInlineSize: "22vw",
+    },
+    "& .item": {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
   },
   choose__us: {
@@ -24,7 +27,7 @@ const useStyles = createUseStyles({
       position: "absolute",
       top: "6px",
       right: "14px",
-      width: "40%",
+      width: "30%",
       height: "3px",
       backgroundColor: "red",
     },
@@ -33,9 +36,19 @@ const useStyles = createUseStyles({
       position: "absolute",
       top: "6px",
       left: "14px",
-      width: "40%",
+      width: "30%",
       height: "3px",
       backgroundColor: "red",
+    },
+  },
+  "@media (max-width: 469px)": {
+    choose__us: {
+      "&:before": {
+        display: "none",
+      },
+      "&:after": {
+        display: "none",
+      },
     },
   },
 });
@@ -56,6 +69,30 @@ const reasons = [
     text: "Your words have weight. Nothing is more important than the fans!",
   },
 ];
+
+const setting = {
+  loop:false,
+  autoplay: {
+    "deplay":2000
+  },
+  breakpoints: {
+    "700": {
+      "slidesPerView": 3,
+      "loop": false,
+    },
+    "500": {
+      "slidesPerView": 2,
+      "loop": true,
+      "autoplay": true,
+      "pagination":true,
+    },
+    "380": {
+      slidesPerView: 1,
+      loop: true,
+      autoplay: true,
+    },
+  },
+};
 const ChooseUs: React.FC = () => {
   let classes = useStyles();
   return (
@@ -64,19 +101,28 @@ const ChooseUs: React.FC = () => {
         <h4>WHY CHOOSE US ?</h4>
       </div>
       <div className={classes.grid}>
-        {reasons.map((reason, index) => {
-          return (
-            <div key={index}>
-              <div>
-                <img src={reason.img} alt="chooseus" />
-              </div>
-              <div>
-                <h5>{reason.title}</h5>
-                <p>{reason.text}</p>
-              </div>
-            </div>
-          );
-        })}
+        <Swiper
+          {...setting}
+          autoplay={true}
+          pagination={true}
+          className="mySwipert"
+        >
+          {reasons.map((reason, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div className="item">
+                  <img src={reason.img} alt="choouse" />
+                  <div>
+                    <h5>{reason.title}</h5>
+                    <div>
+                      <p>{reason.text}</p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </>
   );
