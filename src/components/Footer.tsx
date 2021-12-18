@@ -34,7 +34,6 @@ const useStyles = createUseStyles({
   },
   grid: {
     display: "grid",
-    justifyItems:"center"
   },
   col_3: {
     gridTemplateColumns: "repeat(3,1fr)",
@@ -46,6 +45,7 @@ const useStyles = createUseStyles({
     gridColumn: " span 3",
     "& h3": {
       fontSize: "1.7rem",
+      margin:"10px 0px"
     },
     "& > .form__text > h3": {
       color: "#fab818",
@@ -130,12 +130,35 @@ const useStyles = createUseStyles({
         display: "none",
       },
     },
+    grid:{
+      justifyItems:"center"
+    }
   },
   "@media (max-width:800px)": {
     content__layout: {
       gridColumn: "2 / span 10",
     },
+    subscriber:{
+      "& h3":{
+        fontSize:"1rem",
+        margin:"5px 0px"
+      }
+    },
+    icon__buttons:{
+      gridColumn:"span 3"
+    },
+    form:{
+      "& > button":{
+        marginTop:"10px"
+      }
+    }
   },
+  "@media (max-wdith:500px)":{
+    content__layout:{
+      gridColumn:"span 13",
+      gridGap:"5px"
+    }
+  }
 });
 const Footer: React.FC = () => {
   const classes = useStyles();
