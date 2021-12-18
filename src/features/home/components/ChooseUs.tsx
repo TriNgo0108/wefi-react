@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import { free, japan, rating } from "images";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
-SwiperCore.use([Autoplay, Pagination]);
+SwiperCore.use([Autoplay,Pagination]);
 const useStyles = createUseStyles({
   grid: {
     margin: "10px",
@@ -50,6 +50,11 @@ const useStyles = createUseStyles({
         display: "none",
       },
     },
+   grid:{
+     "&  p":{
+      maxInlineSize: "fit-content",
+     }
+   } 
   },
 });
 const reasons = [
@@ -71,27 +76,20 @@ const reasons = [
 ];
 
 const setting = {
-  loop:false,
-  autoplay: {
-    "deplay":2000
-  },
   breakpoints: {
-    "700": {
-      "slidesPerView": 3,
-      "loop": false,
+    400:{
+      slidesPerView:1,
+      pagination:true
     },
-    "500": {
-      "slidesPerView": 2,
-      "loop": true,
-      "autoplay": true,
-      "pagination":true,
+    700:{
+      slidesPerView:2,
+      pagination:true
     },
-    "380": {
-      slidesPerView: 1,
-      loop: true,
-      autoplay: true,
-    },
-  },
+    1000:{
+      slidesPerView:3,
+      pagination:false
+    }
+  }
 };
 const ChooseUs: React.FC = () => {
   let classes = useStyles();
@@ -101,12 +99,7 @@ const ChooseUs: React.FC = () => {
         <h4>WHY CHOOSE US ?</h4>
       </div>
       <div className={classes.grid}>
-        <Swiper
-          {...setting}
-          autoplay={true}
-          pagination={true}
-          className="mySwipert"
-        >
+        <Swiper {...setting} autoplay={true} >
           {reasons.map((reason, index) => {
             return (
               <SwiperSlide key={index}>
