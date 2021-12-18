@@ -30,6 +30,7 @@ const useStyles = createUseStyles<string, ToggleProps>({
     height: "80px",
   },
   header: {
+    position:"relative",
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)",
     transition: "500ms all",
@@ -46,9 +47,8 @@ const useStyles = createUseStyles<string, ToggleProps>({
       gridColumn: "4 / span 6",
       alignSelf: "center",
     },
-    "& > .toggle": {
+    "& > .toggle, & > .dropdown": {
       display: "none",
-      textTransform: "capitalize",
     },
     "&:hover": {
       backgroundColor: "#B22D29",
@@ -101,25 +101,27 @@ const useStyles = createUseStyles<string, ToggleProps>({
         gridColumn: "12 / span 1",
         fontSize: "1.5rem",
         alignSelf: "center",
-        "& > .dropdown": {
-          position: "absolute",
-          overflowX: "hidden",
-          top: "160px",
-          color: "white",
-          backgroundColor: "#B22D29",
-          transition: "500ms all",
-          left: 0,
-          width: "100%",
-          height: (prop: ToggleProps) => (prop.open === true ? "44vh" : 0),
-          zIndex: 2,
-          boxShadow: "0 16px 24px 2px rgba(0, 0, 0, 0.14)",
-          "& > ul": {
-            listStyle: "none",
-            padding: "0",
-            margin: "0",
-            "& > li": {
-              margin: "10px 0px",
-            },
+      },
+      "& > .dropdown": {
+        display: "inherit",
+        width:"100%",
+        textTransform: "capitalize",
+        gridColumn:"span 13",
+        overflowX: "hidden",
+        position:"absolute",
+        top:"80px",
+        color: "white",
+        backgroundColor: "#B22D29",
+        transition: "500ms all",
+        height: (prop: ToggleProps) => (prop.open === true ? "210px" : 0),
+        zIndex: 2,
+        boxShadow: "0 16px 24px 2px rgba(0, 0, 0, 0.14)",
+        "& > ul": {
+          listStyle: "none",
+          padding: "0",
+          margin: "0",
+          "& > li": {
+            margin: "10px 0px",
           },
         },
       },
@@ -177,7 +179,8 @@ const MainHeader: React.FC = () => {
         </div>
         <div className="toggle">
           <BiMenu onClick={handleToggleClick} />
-          <div className={"dropdown"}>
+        </div>
+        <div className="dropdown">
             <ul>
               {getNavList()}
               <li className="nav__item">
@@ -200,7 +203,6 @@ const MainHeader: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
       </div>
     </header>
   );
