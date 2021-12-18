@@ -7,13 +7,13 @@ import { footer_background, footer_image } from "images";
 const useStyles = createUseStyles({
   footer: {
     marginTop: "10px",
-    position:"relative",
-    "& .footer__image > img":{
-      position:"absolute",
-      top:"0",
-      right:"10vw",
-      height:"100%"
-    }
+    position: "relative",
+    "& .footer__image > img": {
+      position: "absolute",
+      top: "0",
+      right: "10vw",
+      height: "100%",
+    },
   },
   footer__background: {
     position: "relative",
@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
       left: 0,
       zIndex: -1,
       backgroundImage: `url(${footer_background})`,
-      height: "50vh", 
+      height: "50vh",
       width: "100%",
       backgroundSize: "cover",
       backgroundPosition: "bottom",
@@ -34,6 +34,7 @@ const useStyles = createUseStyles({
   },
   grid: {
     display: "grid",
+    justifyItems:"center"
   },
   col_3: {
     gridTemplateColumns: "repeat(3,1fr)",
@@ -42,15 +43,20 @@ const useStyles = createUseStyles({
     gridTemplateColumns: "repeat(12,1fr)",
   },
   subscriber: {
-    gridColumn: "2 / span 1",
+    gridColumn: " span 3",
     "& h3": {
       fontSize: "1.7rem",
     },
     "& > .form__text > h3": {
       color: "#fab818",
     },
+    "& > .grid_icon": {
+      display: "grid",
+      gridTemplateColumns: "repeat(3,1fr)",
+    },
   },
   icon__buttons: {
+    gridColumn: "2 / span 1",
     display: "grid",
     gridTemplateColumns: "repeat(4,1fr)",
     fontSize: "2.5rem",
@@ -69,7 +75,7 @@ const useStyles = createUseStyles({
     "& > button": {
       fontSize: "1rem",
       height: "45px",
-      width: "8vw",
+      width: "120px",
       marginLeft: "10px",
       border: "1px #ff0 solid",
       backgroundColor: "#fab818",
@@ -85,7 +91,7 @@ const useStyles = createUseStyles({
     "& > input": {
       fontSize: "1rem",
       borderRadius: "10px",
-      width: "15vw",
+      width: "250px",
       height: "45px",
       backgroundColor: "#ffffff",
       border: "1px #fab818 solid",
@@ -97,11 +103,11 @@ const useStyles = createUseStyles({
   },
   footer__content: {
     backgroundColor: "black",
-    "& > .copyright":{
-      gridColumn:"5 / span 3",
-      color:"white",
-      marginTop:"20px"
-    }
+    "& > .copyright": {
+      gridColumn: "span 12",
+      color: "white",
+      marginTop: "20px",
+    },
   },
   content__layout: {
     gridColumn: "2 / span 8",
@@ -110,14 +116,25 @@ const useStyles = createUseStyles({
     "& h4": {
       color: "#ff0",
     },
-    "& .list > p":{
-      transition:"500ms all",
-      cursor:"pointer"
+    "& .list > p": {
+      transition: "500ms all",
+      cursor: "pointer",
     },
-    "& .list > p:hover":{
-      paddingLeft:"10px"
+    "& .list > p:hover": {
+      paddingLeft: "10px",
     },
-
+  },
+  "@media (max-width:1200px)": {
+    footer: {
+      "& .footer__image > img": {
+        display: "none",
+      },
+    },
+  },
+  "@media (max-width:800px)": {
+    content__layout: {
+      gridColumn: "2 / span 10",
+    },
   },
 });
 const Footer: React.FC = () => {
@@ -130,7 +147,7 @@ const Footer: React.FC = () => {
             <div className="title">
               <h3>WE'RE SOCIAL</h3>
             </div>
-            <div className={classes.subscriber}>
+            <div className="grid_icon">
               <div className={classes.icon__buttons}>
                 <FaFacebook />
                 <AiFillTwitterCircle />
@@ -171,7 +188,6 @@ const Footer: React.FC = () => {
               <p>Copyright Policy</p>
               <p>Terms of Service</p>
               <p>Privacy Policy</p>
-
             </div>
           </div>
           <div className="help">
@@ -186,7 +202,7 @@ const Footer: React.FC = () => {
         <div className="copyright">Copyright © 2021, WeFi</div>
       </div>
       <div className="footer__image">
-        <img src={footer_image} alt="footer__image"/>
+        <img src={footer_image} alt="footer__image" />
       </div>
     </footer>
   );
