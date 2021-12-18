@@ -136,7 +136,13 @@ const useStyles = createUseStyles({
   },
   "@media (max-width:800px)": {
     content__layout: {
-      gridColumn: "2 / span 10",
+      display:"none"
+    },
+    footer__background:{
+      height:"30vh",
+      "&::before":{
+        height:"30vh",
+      }
     },
     subscriber:{
       "& h3":{

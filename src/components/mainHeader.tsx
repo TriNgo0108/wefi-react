@@ -104,7 +104,7 @@ const useStyles = createUseStyles<string, ToggleProps>({
         "& > .dropdown": {
           position: "absolute",
           overflowX: "hidden",
-          top: "22.5vh",
+          top: "160px",
           color: "white",
           backgroundColor: "#B22D29",
           transition: "500ms all",
