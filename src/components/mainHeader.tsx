@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
 import { BiUser, BiCart, BiMenu } from "react-icons/bi";
 import { background, logo } from "images";
 
-interface ToggleProps {
+interface HeaderProps {
   open?: boolean;
+  sticky?: boolean;
 }
 
-const useStyles = createUseStyles<string, ToggleProps>({
+const useStyles = createUseStyles<string, HeaderProps>({
   top__header: {
     height: "10vh",
     backgroundImage: `url(${background})`,
@@ -30,10 +31,14 @@ const useStyles = createUseStyles<string, ToggleProps>({
     height: "80px",
   },
   header: {
-    position:"relative",
+    position:(prop: HeaderProps) => (prop.sticky === true ? "fixed" : "relative"),
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)",
-    transition: "500ms all",
+    transition: "all 800ms",
+    width:"100%",
+    backgroundColor:"white",
+    zIndex:100,
+    top:(prop: HeaderProps) => (prop.sticky === true ? 0 : "unset"),
     "& > .logo": {
       display: "flex",
       alignSelf: "center",
@@ -113,7 +118,7 @@ const useStyles = createUseStyles<string, ToggleProps>({
         color: "white",
         backgroundColor: "#B22D29",
         transition: "500ms all",
-        height: (prop: ToggleProps) => (prop.open === true ? "210px" : 0),
+        height: (prop: HeaderProps) => (prop.open === true ? "210px" : 0),
         zIndex: 2,
         boxShadow: "0 16px 24px 2px rgba(0, 0, 0, 0.14)",
         "& > ul": {
@@ -149,16 +154,32 @@ const getNavList = () => {
 };
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
-  let classes = useStyles({ open: isOpened });
+  const [isSticky,setSticky] = useState(false);
+  let classes = useStyles({ open: isOpened, sticky:isSticky });
+  const headerEl= useRef(null);
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
+  
+  useEffect(()=>{
+    const headerY = (headerEl?.current as unknown as HTMLElement).offsetTop;
+    window.onscroll = () =>{
+      console.log(window.scrollY > headerY);
+      if (window.scrollY > headerY  && isSticky === false ){
+        setSticky(true);
+      }
+      if(window.scrollY < headerY){
+        setSticky(false);
+      }
+    }
+  },[]);
+  console.log("State: ",isSticky);
   return (
     <header>
       <div className={classes.top__header}>
         <p>Padoru</p>
       </div>
-      <div className={classes.header}>
+      <div className={classes.header} ref={headerEl}>
         <div className="logo">
           <img src={logo} alt="logo" className={classes.logo} />
           <p>WEFI</p>
