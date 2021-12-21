@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
@@ -11,34 +11,25 @@ interface HeaderProps {
 }
 
 const useStyles = createUseStyles<string, HeaderProps>({
-  top__header: {
-    height: "10vh",
-    backgroundImage: `url(${background})`,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    "& >p": {
-      backgroundColor: "red",
-      margin: "0",
-      borderRadius: "10px",
-      padding: "10px",
-      color: "white",
-      boxShadow: "2px 2px 2px #c12727, -2px -2px 2px #c12727",
+  header:{
+    position:"sticky",
+    top:"0",
+    zIndex:100,
+  },
+  header_layout: {
+    "&::before":{
+      content:`""`,
+      backgroundImage:`url(${background})`,
+      height:"8vh",
+      width:"100%",
+      gridColumn:" span 13"
     },
-  },
-  logo: {
-    width: "80px",
-    height: "80px",
-  },
-  header: {
-    position:(prop: HeaderProps) => (prop.sticky === true ? "fixed" : "relative"),
+    position:"relative",
     display: "grid",
     gridTemplateColumns: "repeat(12, 1fr)",
     transition: "all 800ms",
     width:"100%",
     backgroundColor:"white",
-    zIndex:100,
-    top:(prop: HeaderProps) => (prop.sticky === true ? 0 : "unset"),
     "& > .logo": {
       display: "flex",
       alignSelf: "center",
@@ -154,34 +145,15 @@ const getNavList = () => {
 };
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
-  const [isSticky,setSticky] = useState(false);
-  let classes = useStyles({ open: isOpened, sticky:isSticky });
-  const headerEl= useRef(null);
+  let classes = useStyles({ open: isOpened});
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
-  
-  useEffect(()=>{
-    const headerY = (headerEl?.current as unknown as HTMLElement).offsetTop;
-    window.onscroll = () =>{
-      console.log(window.scrollY > headerY);
-      if (window.scrollY > headerY  && isSticky === false ){
-        setSticky(true);
-      }
-      if(window.scrollY < headerY){
-        setSticky(false);
-      }
-    }
-  },[]);
-  console.log("State: ",isSticky);
   return (
-    <header>
-      <div className={classes.top__header}>
-        <p>Padoru</p>
-      </div>
-      <div className={classes.header} ref={headerEl}>
+    <header className={classes.header}>
+      <div className={classes.header_layout}>
         <div className="logo">
-          <img src={logo} alt="logo" className={classes.logo} />
+          <img src={logo} alt="logo"  width="80px" height="80px" />
           <p>WEFI</p>
         </div>
         <div className="menu">
