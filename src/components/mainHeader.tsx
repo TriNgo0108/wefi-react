@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
@@ -7,7 +7,7 @@ import { background, logo } from "images";
 
 interface HeaderProps {
   open?: boolean;
-  sticky?: boolean;
+  scrollDown?: boolean;
 }
 
 const useStyles = createUseStyles<string, HeaderProps>({
@@ -15,6 +15,8 @@ const useStyles = createUseStyles<string, HeaderProps>({
     position:"sticky",
     top:"0",
     zIndex:100,
+    transform: (props:HeaderProps)=> props.scrollDown ? "translateY(-100%)":"unset",
+    transition:"all .3s"
   },
   header_layout: {
     "&::before":{
@@ -88,7 +90,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
     },
   },
   "@media (max-width:749px)": {
-    header: {
+    header_layout: {
       "& > .menu": {
         display: "none",
       },
@@ -105,7 +107,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
         gridColumn:"span 13",
         overflowX: "hidden",
         position:"absolute",
-        top:"80px",
+        top:"151px",
         color: "white",
         backgroundColor: "#B22D29",
         transition: "500ms all",
@@ -145,10 +147,25 @@ const getNavList = () => {
 };
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
-  let classes = useStyles({ open: isOpened});
+  const [isScrollDown,setScrollDown] = useState(false);
+  let classes = useStyles({ open: isOpened,scrollDown:isScrollDown});
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
+  useEffect(()=>{
+    let lastScroll = 0;
+    window.onscroll = ()=>{
+      if (window.scrollY > lastScroll){
+        lastScroll = window.scrollY;
+        setScrollDown(true);
+      }
+      if(window.scrollY < lastScroll){
+        lastScroll = window.scrollY;
+        setScrollDown(false);
+      }
+      
+    }
+  },[]);
   return (
     <header className={classes.header}>
       <div className={classes.header_layout}>
