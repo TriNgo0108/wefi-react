@@ -107,7 +107,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
         gridColumn:"span 13",
         overflowX: "hidden",
         position:"absolute",
-        top:"151px",
+        top:"calc(80px + 8vh)",
         color: "white",
         backgroundColor: "#B22D29",
         transition: "500ms all",
