@@ -184,7 +184,14 @@ const MainHeader: React.FC = () => {
             <BiCart />
           </div>
           <div>
-            <BiUser />
+          <NavLink
+                  className={({ isActive }) =>
+                    "nav__link" + (isActive ? " activated" : "")
+                  }
+                  to="/login"
+                >
+            {<BiUser />}
+            </NavLink>
           </div>
         </div>
         <div className="toggle">

@@ -18,6 +18,7 @@ import footer_background from"../images/footer_background.avif";
 import footer_image from "./footer_image.avif";
 import background from "./background.avif";
 import logo from "./logo.avif"
+import login_form from "./login_form.avif";
 export {
   slider_1,
   slider_2,
@@ -38,5 +39,6 @@ export {
   footer_background,
   footer_image,
   background,
-  logo
+  logo,
+  login_form
 };
