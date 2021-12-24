@@ -28,34 +28,34 @@ const useStyles = createUseStyles({
           flexDirection: "row",
           justifyContent: "space-between",
           marginBottom: "20px",
-          fontSize:"13px",
-          color:"#218b00"
+          fontSize: "13px",
+          color: "#218b00",
         },
         "&  button": {
           width: "100%",
           height: "40px",
           fontSize: "1rem",
           marginBottom: "5px",
-          backgroundColor:"#218b00",
-          color:"white",
-          borderRadius:"4px",
-          border:"2px #c4ffb1 solid",
-          transition:".5s all",
-          "&:hover":{
-            backgroundColor:"#B22D29",
-            border:"2px #ffff52 solid",
-          }
+          backgroundColor: "#218b00",
+          color: "white",
+          borderRadius: "4px",
+          border: "2px #c4ffb1 solid",
+          transition: ".5s all",
+          "&:hover": {
+            backgroundColor: "#B22D29",
+            border: "2px #ffff52 solid",
+          },
         },
         "& > .others__option": {
           display: "grid",
           gridTemplateColumns: "repeat(3,1fr)",
           gridGap: "20px",
-          marginBottom:"40px",
+          marginBottom: "40px",
           "& > p": {
             gridColumn: "span 3",
             position: "relative",
             textAlign: "center",
-            color:"#00000061",
+            color: "#00000061",
             "&::after": {
               position: "absolute",
               content: `""`,
@@ -76,26 +76,51 @@ const useStyles = createUseStyles({
             },
           },
         },
-        "& > .register":{
-          textAlign:"center",
-          "& > p":{
-            color:"#218b00"
+        "& > .register": {
+          textAlign: "center",
+          "& > p": {
+            color: "#218b00",
           },
-          "& a":{
-            textDecoration:"unset"
-          }
-        }
+          "& a": {
+            textDecoration: "unset",
+          },
+        },
       },
     },
     "& .login__text": {
       fontSize: "1.5rem",
       marginBottom: "20px",
-      color:"#218b00",
+      color: "#218b00",
     },
     "& p": {
       margin: 0,
     },
   },
+  "@media (max-width:900px)": {
+    grid: {
+      "& > .form__wapper": {
+        gridColumn: "4 / span 6",
+      },
+    },
+  },
+  "@media (max-width:600px)": {
+    grid: {
+      "& > .form__wapper": {
+        gridColumn: "2 / span 10",
+      },
+    },
+  },
+  "@media (max-width:370px)":{
+    grid:{
+        "& > .form__wapper":{
+            gridColumn:"span 13",
+            margin:"0px 5px",
+            "& > .form":{
+              padding:"10px"
+            }
+        }
+    }
+}
 });
 const LoginForm: React.FC = () => {
   const classes = useStyles();
@@ -136,7 +161,7 @@ const LoginForm: React.FC = () => {
             </div>
             <div className="register">
               <p>
-                New weeb ? 
+                New weeb ?
                 <span>
                   <a href="/register"> Register</a>
                 </span>

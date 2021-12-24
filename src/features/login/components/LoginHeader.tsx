@@ -20,7 +20,29 @@ const useStyles = createUseStyles({
             gridColumn:"12 / span 1",
             cursor:"pointer"
         }
+    },
+    "@media (max-width:900px)":{
+        grid:{
+            "& > .help":{
+                gridColumn:"11 / span 2"
+            }
+        }
+    },
+    "@media (max-width:600px)":{
+        grid:{
+            "& > .help":{
+                gridColumn:"10 / span 3"
+            }
+        }
+    },
+    "@media (max-width:370px)":{
+        grid:{
+            "& > .help":{
+                gridColumn:"9 / span 4"
+            }
+        }
     }
+
 });
 const LoginHeader : React.FC = () =>{
     const classes = useStyles();
