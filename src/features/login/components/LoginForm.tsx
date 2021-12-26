@@ -4,6 +4,8 @@ import { login_form } from "images";
 import { Input, LoginWith } from ".";
 import { BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
+import { useAppDispatch } from "app/hooks";
+import { LoginWithEmail } from "../loginSlice";
 const useStyles = createUseStyles({
   grid: {
     display: "grid",
@@ -123,6 +125,7 @@ const useStyles = createUseStyles({
 }
 });
 const LoginForm: React.FC = () => {
+  const dispatch = useAppDispatch();
   const classes = useStyles();
   return (
     <>
@@ -147,7 +150,9 @@ const LoginForm: React.FC = () => {
               />
             </div>
             <div className="login__button">
-              <button>LOG IN</button>
+              <button onClick={()=>{
+                dispatch(LoginWithEmail())
+              }}>LOG IN</button>
             </div>
             <div className="helper">
               <p>Forgot password</p>
