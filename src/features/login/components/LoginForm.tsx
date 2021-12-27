@@ -6,6 +6,10 @@ import { BsFacebook, BsApple } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useAppDispatch } from "app/hooks";
 import { LoginWithEmail } from "../loginSlice";
+
+interface IError{
+  code?:number
+}
 const useStyles = createUseStyles({
   grid: {
     display: "grid",
@@ -32,6 +36,17 @@ const useStyles = createUseStyles({
           marginBottom: "20px",
           fontSize: "13px",
           color: "#218b00",
+        },
+        "& > .error":{
+          marginBottom:"5px",
+          overflow:"hidden",
+          transition :".5s all",
+          height:"0",
+          color:"red",
+          fontSize:"14px"
+        },
+        "& > .error.active":{
+          height:"20px !important"
         },
         "&  button": {
           width: "100%",
@@ -124,7 +139,7 @@ const useStyles = createUseStyles({
     }
 }
 });
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<IError> = (props:IError) => {
   const dispatch = useAppDispatch();
   const classes = useStyles();
   return (
@@ -148,6 +163,9 @@ const LoginForm: React.FC = () => {
                 isPassword={true}
                 placeHolder="Enter your password"
               />
+            </div>
+            <div className={props?.code === 401 ? "error active":"error"}>
+              <p>Password is incorrect, please try again</p>
             </div>
             <div className="login__button">
               <button onClick={()=>{
