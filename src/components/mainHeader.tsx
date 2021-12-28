@@ -73,7 +73,11 @@ const useStyles = createUseStyles<string, HeaderProps>({
     display: "grid",
     gridTemplateColumns: "repeat(6,1fr)",
     cursor: "pointer",
-    "& > li": {
+    "& > a":{
+      textDecoration:"unset",
+      color:"black"
+    },
+    "&  li": {
       listStyleType: "none",
       textTransform: "capitalize",
     },
@@ -118,7 +122,10 @@ const useStyles = createUseStyles<string, HeaderProps>({
           listStyle: "none",
           padding: "0",
           margin: "0",
-          "& > li": {
+          "& > a":{
+            textDecoration:"unset",
+          },
+          "&  li": {
             margin: "10px 0px",
           },
         },
@@ -133,15 +140,14 @@ const getNavList = () => {
   const navList = ["anime", "manga", "game", "figure", "about us"];
   return navList.map((nav, index) => {
     return (
-      <li className="nav__item" key={index}>
-        <NavLink
+        <NavLink key={index}
           className={({ isActive }) =>
             "nav__link" + (isActive ? " activated" : "")
           }
           to={`/${nav.split(" ").length < 2 ? nav : "aboutus"}`}
-        />
-        {nav}
-      </li>
+        >
+          <li className="nav__item">{nav}</li>
+        </NavLink>
     );
   });
 };
@@ -200,24 +206,22 @@ const MainHeader: React.FC = () => {
         <div className="dropdown">
             <ul>
               {getNavList()}
-              <li className="nav__item">
                 <NavLink
                   className={({ isActive }) =>
                     "nav__link" + (isActive ? " activated" : "")
                   }
                   to="/login"
-                />
-                Login
-              </li>
-              <li className="nav__item">
-                <NavLink
+                >
+                  <li>Login</li>
+                </NavLink>
+              <NavLink
                   className={({ isActive }) =>
                     "nav__link" + (isActive ? " activated" : "")
                   }
                   to="/cart"
-                />
-                Cart
-              </li>
+                >
+                  <li>Cart</li>
+                </NavLink>
             </ul>
           </div>
       </div>
