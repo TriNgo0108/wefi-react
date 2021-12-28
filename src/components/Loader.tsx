@@ -15,12 +15,13 @@ const useStyles = createUseStyles({
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
+        zIndex:"100",
         "& > .overlay__content":{
             backgroundColor:"white",
             width:"fit-content",
             height:"100px",
             padding:"0px 5px",
-            fontSize:"2vw",
+            fontSize:"clamp(16px,2vw,4vw)",
             borderRadius:"10px",
             display:"flex",
             alignItems:"center",
@@ -44,7 +45,6 @@ const Loader : React.FC<ILoader> = (props :ILoader) =>{
     const classes = useStyles();
     useEffect(()=>{
         const length = props.text?.length ?? 0;
-        console.log(length);
         const increaseActiveIndex = () =>{
             setActiveIndex((preIndex):number=>{
                 return preIndex + 1 > length -1 ? 0 : preIndex + 1 
