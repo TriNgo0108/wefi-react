@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { setInterval } from "timers";
 interface ILoader {
@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
 const Loader : React.FC<ILoader> = (props :ILoader) =>{
     const [activeIndex,setActiveIndex] = useState(0);
     const classes = useStyles();
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         const length = props.text?.length ?? 0;
         const increaseActiveIndex = () =>{
             setActiveIndex((preIndex):number=>{
