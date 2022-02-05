@@ -91,6 +91,9 @@ const useStyles = createUseStyles<string, HeaderProps>({
     "& > div": {
       fontSize: "18px",
       transition: "500ms all",
+      "& > a":{
+        color: "#000"
+      }
     },
   },
   "@media (max-width:749px)": {
