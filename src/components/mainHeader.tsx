@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
 import { BiUser, BiCart, BiMenu } from "react-icons/bi";
 import { background, logo } from "images";
@@ -35,6 +35,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
     "& > .logo": {
       display: "flex",
       alignSelf: "center",
+      cursor:"pointer",
       "& > p": {
         margin: 0,
         alignSelf: "center",
@@ -157,10 +158,14 @@ const getNavList = () => {
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
   const [isScrollDown,setScrollDown] = useState(false);
+  const navigate =  useNavigate();
   let classes = useStyles({ open: isOpened,scrollDown:isScrollDown});
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
+  const goToHome = ()=>{
+    navigate("/");
+  }
   useEffect(()=>{
     let lastScroll = 0;
     window.onscroll = ()=>{
@@ -174,11 +179,11 @@ const MainHeader: React.FC = () => {
       }
       
     }
-  },[]);
+  },[])
   return (
     <header className={classes.header}>
       <div className={classes.header_layout}>
-        <div className="logo">
+        <div className="logo" onClick={goToHome}>
           <img src={logo} alt="logo"  width="80px" height="80px" />
           <p>WEFI</p>
         </div>
