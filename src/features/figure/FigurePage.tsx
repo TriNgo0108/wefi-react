@@ -1,5 +1,5 @@
 import { Footer, MainHeader, Product, ToolBar } from "components";
-import products from "models/product.models";
+import products from "models/figure.product.model";
 import React from "react";
 import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     gridGap:"20px"
   }
 });
-const AnimePage: React.FC = () => {
+const FigurePage: React.FC = () => {
   const onChange = (event: Event) => {
     console.log("ID", (event.target as HTMLInputElement).value);
   };
@@ -36,4 +36,4 @@ const AnimePage: React.FC = () => {
     </div>
   );
 };
-export default AnimePage;
+export default FigurePage;
