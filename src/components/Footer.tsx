@@ -139,9 +139,9 @@ const useStyles = createUseStyles({
       display:"none"
     },
     footer__background:{
-      height:"30vh",
+      height:"40vh",
       "&::before":{
-        height:"30vh",
+        height:"40vh",
       }
     },
     subscriber:{
