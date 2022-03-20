@@ -25,7 +25,8 @@ const useStyles = createUseStyles({
 	},
 	imageProduct:{
 		width:"200px",
-		height:"300px"
+		height:"300px",
+		objectFit:"cover"
 	},
 	flex:{
 		display:"flex",
@@ -49,7 +50,7 @@ const useStyles = createUseStyles({
 		width:"40px",
 		height:"40px",
 		borderRadius:"50px",
-		border:"1px #f00 solid",
+		border:"1px #efe1e1 solid",
 		display:"flex",
 		justifyContent:"center",
 		alignItems:"center",

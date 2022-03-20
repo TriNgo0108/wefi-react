@@ -141,7 +141,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
   },
 });
 const getNavList = () => {
-  const navList = ["anime", "manga", "game", "figure", "about us"];
+  const navList = ["anime", "manga", "accessories", "figure", "about us"];
   return navList.map((nav, index) => {
     return (
         <NavLink key={index}

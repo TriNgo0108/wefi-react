@@ -17,7 +17,7 @@ const getColor = (type?:string) =>{
         case "in-stock":
             return colorList[1];
         case "exclusive":
-            return 
+            return  colorList[2]
     }
 }
 const isExclusive = (type?:string)=>{
@@ -28,6 +28,7 @@ const useStyles = createUseStyles<string,IType>({
         padding:"2px",
         color:"white",
         width:"100px",
+        marginLeft:"5px",
         backgroundColor:(prop:IType)=>prop.color,
         "& > p":{
             textTransform:"uppercase",
