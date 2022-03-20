@@ -33,6 +33,16 @@ const useStyles = createUseStyles({
 		display:"flex",
 		justifyContent:"center"
 	},
+	"@media (max-width:900px)":{
+		noTextUnder:{
+			gridColumn:"span 6"
+		}
+	},
+	"@media (max-width:600px)":{
+		noTextUnder:{
+			gridColumn:"span 12"
+		}
+	}
 });
 
 const Product: React.FC<IProduct> = (pros: IProduct) => {
