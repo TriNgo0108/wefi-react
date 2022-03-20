@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
 		"& > .product":{
 			margin:"10px",
 			"& > .name":{
-				height:"55px"
+				height:"70px"
 			}
 		}
 	},
