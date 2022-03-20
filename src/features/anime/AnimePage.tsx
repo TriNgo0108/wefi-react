@@ -1,7 +1,7 @@
 import { Footer, MainHeader, Product, ToolBar } from "components";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import products from "models/anime.product.model";
+import products from "models/product.model";
 const useStyles = createUseStyles({
     products:{
       margin:"10px",
@@ -21,8 +21,9 @@ const AnimePage : React.FC = () =>{
          <ToolBar page={0} pagePerNumber={5} onChange={onChange}></ToolBar>
          <div className={classes.products}>
         {products.map((product) => {
-          return (
+          return product.kind=== "anime" &&(
             <Product
+              key={product.id}
               price={product.price}
               name={product.name}
               imageUrl={product.imageUrl}

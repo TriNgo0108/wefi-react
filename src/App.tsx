@@ -6,6 +6,7 @@ import FigurePage from "features/figure/FigurePage";
 import AnimePage from "features/anime/AnimePage";
 import MangaPage from "features/manga/mangaPage";
 import AccessoriesPage from "features/accessories/AccessoriesPAge";
+import ProductDetail from "features/product-detail/Product-Detail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/anime" element={<AnimePage/>}/>
           <Route path="/manga" element={<MangaPage/>}/>
           <Route path="/accessories" element={<AccessoriesPage/>}/>
+          <Route path="/product-detail/:id" element={<ProductDetail/>}/>
         </Routes>
       </BrowserRouter>
     </div>

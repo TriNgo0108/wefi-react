@@ -1,5 +1,5 @@
 import { Footer, MainHeader, Product, ToolBar } from "components";
-import products from "models/figure.product.model";
+import products from "models/product.model";
 import React from "react";
 import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
@@ -21,8 +21,9 @@ const FigurePage: React.FC = () => {
       <ToolBar page={0} pagePerNumber={5} onChange={onChange}></ToolBar>
       <div className={classes.products}>
         {products.map((product) => {
-          return (
+          return product.kind === "figure" && (
             <Product
+              key={product.id}
               price={product.price}
               name={product.name}
               imageUrl={product.imageUrl}

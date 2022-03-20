@@ -3,5 +3,6 @@ export interface IProduct {
     name?:string;
     types?:string[];
     price?:string;
-    imageUrl?:string
+    imageUrl?:string;
+    kind?:string;
 }
