@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import TypeOfProduct from "./typeOfProduct";
 import ToolBar from "./toolbar";
 import Product from "./product";
+import Expand from "./expand";
 export {
     MainHeader,
     Footer,
@@ -11,4 +12,5 @@ export {
     TypeOfProduct,
     ToolBar,
     Product,
+    Expand
 };

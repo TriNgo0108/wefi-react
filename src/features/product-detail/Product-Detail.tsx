@@ -1,4 +1,4 @@
-import { Footer, MainHeader, TypeOfProduct } from "components";
+import { Expand, Footer, MainHeader, TypeOfProduct } from "components";
 import products from "models/product.model";
 import React from "react";
 import { AiFillCar } from "react-icons/ai";
@@ -128,6 +128,18 @@ const ProductDetail : React.FC = ()=>{
                             <AiFillCar/>
                             <span>Free Shipping $100+</span>
                         </div>
+                        <Expand title="Description" >
+                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                        </Expand>
+                        <Expand title="Questions & Answer">
+                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                        </Expand>
+                        <Expand title="Shipping Delay & Returns">
+                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                        </Expand>
+                        <Expand title="Coronavirus Impact On All Orders"></Expand>
                     </div>
                 </div>
             </div>
