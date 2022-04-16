@@ -8,7 +8,8 @@ const useStyles = createUseStyles({
     avatar:{
         width:"40px",
         height:"40px",
-        borderRadius:"50%"
+        borderRadius:"50%",
+        objectFit:"cover",
     }
 });
 const Avatar : React.FC<IProps> = (props:IProps) =>{
