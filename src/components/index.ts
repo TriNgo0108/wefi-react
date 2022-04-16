@@ -5,6 +5,8 @@ import TypeOfProduct from "./typeOfProduct";
 import ToolBar from "./toolbar";
 import Product from "./product";
 import Expand from "./expand";
+import Avatar from "./avatar";
+import Questions from "./question";
 export {
     MainHeader,
     Footer,
@@ -12,5 +14,7 @@ export {
     TypeOfProduct,
     ToolBar,
     Product,
-    Expand
+    Expand,
+    Avatar,
+    Questions
 };

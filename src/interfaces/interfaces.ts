@@ -5,4 +5,15 @@ export interface IProduct {
     price?:string;
     imageUrl?:string;
     kind?:string;
+    description?:string;
+    preOrder?:string;
+    questions?:IReview[];
+    shipping?:string;
+}
+export interface IReview{
+    avatarUrl?:string;
+    comment?:string;
+    username?:string;
+    time?:string;
+    isStore?:boolean;
 }

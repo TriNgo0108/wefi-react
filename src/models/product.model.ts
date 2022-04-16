@@ -19,6 +19,8 @@ import miko from "../images/miko.png";
 import sakura from "../images/cardcaptor-sakura.webp";
 import megunmi from "../images/megumin-keychain.webp";
 import sword from "../images/sword.webp";
+import customer from "../images/customer_avatar.jpg";
+import store from "../images/avatar_store.png"
 const products: IProduct[] = [
   {
     id: "1",
@@ -26,7 +28,24 @@ const products: IProduct[] = [
     price: "$199.99",
     types: ["pre-order"],
     imageUrl: mai,
-    kind:"figure"
+    kind:"figure",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
   },
   {
     id: "2",
@@ -34,7 +53,24 @@ const products: IProduct[] = [
     price: "$114.99",
     types: ["in-stock"],
     imageUrl: nino,
-    kind:"figure"
+    kind:"figure",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
   },
   {
     id: "3",
@@ -42,7 +78,24 @@ const products: IProduct[] = [
     price: "$225.99",
     types: ["in-stock"],
     imageUrl: toradora,
-    kind:"figure"
+    kind:"figure",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
   },
   {
     id: "4",
@@ -50,7 +103,24 @@ const products: IProduct[] = [
     price: "$232.99",
     types: ["in-stock"],
     imageUrl: alice,
-    kind:"figure"
+    kind:"figure",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
   },
   {
     id:"5",
@@ -58,7 +128,24 @@ const products: IProduct[] = [
     price:"$179.99",
     types:["pre-order"],
     imageUrl:barbara,
-    kind:"figure"
+    kind:"figure",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
   },
   {
     id:"6",
@@ -66,7 +153,24 @@ const products: IProduct[] = [
     types:["in-stock"],
     price:"$22.30",
     imageUrl:violet,
-    kind:"anime"
+    kind:"anime",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 },
 {
     id:"7",
@@ -74,7 +178,24 @@ const products: IProduct[] = [
     types:["in-stock"],
     price:"$69.98",
     imageUrl:mizuhara,
-    kind:"anime"
+    kind:"anime",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 },
 {
     id:"8",
@@ -82,7 +203,24 @@ const products: IProduct[] = [
     types:["in-stock"],
     price:"$26.98",
     imageUrl:belle,
-    kind:"anime"
+    kind:"anime",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 },
 {
     id:"9",
@@ -90,7 +228,24 @@ const products: IProduct[] = [
     types:["in-stock"],
     price:"$19.99",
     imageUrl:yourname,
-    kind:"anime"
+    kind:"anime",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 },
 {
     id:"10",
@@ -98,7 +253,24 @@ const products: IProduct[] = [
     types:["in-stock"],
     price:"$36.00",
     imageUrl:konosuba,
-    kind:"anime"
+    kind:"anime",
+    description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+    shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+    questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 },
 {
   id:"11",
@@ -106,7 +278,24 @@ const products: IProduct[] = [
   types:["in-stock"],
   price:"$18.00",
   imageUrl:yourname_novel,
-  kind:"manga"
+  kind:"manga",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"12",
@@ -114,7 +303,24 @@ const products: IProduct[] = [
   types:["pre-order"],
   price:"$21.46",
   imageUrl:darling_01,
-  kind:"manga"
+  kind:"manga",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"13",
@@ -122,7 +328,24 @@ const products: IProduct[] = [
   types:["pre-order"],
   price:"$11.69",
   imageUrl:rentAGirlFriend,
-  kind:"manga"
+  kind:"manga",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"14",
@@ -130,7 +353,24 @@ const products: IProduct[] = [
   types:["pre-order","exclusive"],
   price:"$13.49",
   imageUrl:wotakoi,
-  kind:"manga"
+  kind:"manga",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"15",
@@ -138,7 +378,24 @@ const products: IProduct[] = [
   types:["exclusive"],
   price:"$12.59",
   imageUrl:classroom,
-  kind:"manga"
+  kind:"manga",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"16",
@@ -146,7 +403,24 @@ const products: IProduct[] = [
   types:["pre-order","exclusive"],
   price:"$63.00",
   imageUrl:klee,
-  kind:"accessories"
+  kind:"accessories",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"17",
@@ -154,7 +428,24 @@ const products: IProduct[] = [
   types:["pre-order","exclusive"],
   price:"$100.00",
   imageUrl:miko,
-  kind:"accessories"
+  kind:"accessories",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"18",
@@ -162,7 +453,24 @@ const products: IProduct[] = [
   types:["exclusive","in-stock"],
   price:"$35.00",
   imageUrl:sakura,
-  kind:"accessories"
+  kind:"accessories",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"19",
@@ -170,7 +478,24 @@ const products: IProduct[] = [
   types:["in-stock"],
   price:"$7.96",
   imageUrl:megunmi,
-  kind:"accessories"
+  kind:"accessories",
+  description:"We're happy to present a new prize figure of Mai from Rascal!. \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+    {
+      username:"hime sama",
+      comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+      time:"about 1 year ago",
+      avatarUrl:customer
+    },
+    {
+      username:"WeFiStore",
+      comment:"This product is currently estimated to ship June 2021.",
+      time:"about 1 year ago",
+      avatarUrl:store,
+      isStore:true
+    }
+  ]
 },
 {
   id:"20",
@@ -178,7 +503,24 @@ const products: IProduct[] = [
   types:["pre-order"],
   price:"$70.00",
   imageUrl:sword,
-  kind:"accessories"
+  kind:"accessories",
+  description:"We're happy to present a new prize figure of Mai from Rascal! \nIn a cute summer dress, accented with a lovely flower in her hair! With amazing details and a translucent tip to her hair, Mai is a must need addition to any collection! \nSize approx: 8” inches tall \n Material: PVC, ABS \nManufacturer: Taito",
+  shipping:"Most Pre-Orders will be delayed by 1-2 months. If your pre-order is delayed, you will be notified via email by the end of the month. \nOrders containing multiple products may be shipped out in separate packages.\nReturns are accepted for most items within 45 days from the delivery date.\nDigital goods, open DVDs and Blu-rays, smart art prints, and mystery bundles are excluded from the return policy.\nFor more details on our Shipping and Return policy check our",
+  questions:[
+      {
+        username:"hime sama",
+        comment:"When i order this from pre-order when do you think i will be able to get it? Basically im asking when do you think this figure will be made and shipped to people that ordered this, maybe a estimated date on when this will be released.",
+        time:"about 1 year ago",
+        avatarUrl:customer
+      },
+      {
+        username:"WeFiStore",
+        comment:"This product is currently estimated to ship June 2021.",
+        time:"about 1 year ago",
+        avatarUrl:store,
+        isStore:true
+      }
+    ]
 }
 ];
 export default products;

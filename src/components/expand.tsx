@@ -12,10 +12,11 @@ interface IExpand{
 }
 const useStyles = createUseStyles<string,IExpand>({
    open:{
-       transition:"all .8s ease-out",
+       transition:"all .8s ease-in-out",
        overflow:"hidden",
        wordBreak:"break-work",
-       fontSize:(props:IExpand)=>(props.isOpen ? "1.25rem":"0rem"),
+       height:"auto",
+       maxHeight:(prop:IExpand) =>(prop.isOpen ? "100%":"0")
    },
    close:{
     transition:"max-height .8s ease-in",

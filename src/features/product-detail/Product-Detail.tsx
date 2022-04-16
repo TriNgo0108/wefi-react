@@ -1,4 +1,4 @@
-import { Expand, Footer, MainHeader, TypeOfProduct } from "components";
+import { Expand, Footer, MainHeader, TypeOfProduct, Questions } from "components";
 import products from "models/product.model";
 import React from "react";
 import { AiFillCar } from "react-icons/ai";
@@ -129,15 +129,13 @@ const ProductDetail : React.FC = ()=>{
                             <span>Free Shipping $100+</span>
                         </div>
                         <Expand title="Description" >
-                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                            {product?.description?.split("\n").map( line => <p>{line}</p>)}
                         </Expand>
                         <Expand title="Questions & Answer">
-                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                            {product?.questions?.map(question => <Questions username={question.username} avatarUrl={question.avatarUrl} comment={question.comment} time={question.time} isStore={question?.isStore}/>)}
                         </Expand>
                         <Expand title="Shipping Delay & Returns">
-                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
-                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
-                            <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+                        {product?.shipping?.split("\n").map( line => <p>{line}</p>)}
                         </Expand>
                         <Expand title="Coronavirus Impact On All Orders"></Expand>
                     </div>
