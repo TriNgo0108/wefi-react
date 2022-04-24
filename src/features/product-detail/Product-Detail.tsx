@@ -1,17 +1,24 @@
+import { useAppDispatch, useAppSelector } from "app/hooks";
 import { Expand, Footer, MainHeader, TypeOfProduct, Questions } from "components";
+import { addNewProduct, getProducts } from "features/cart/cartSlice";
 import products from "models/product.model";
-import React from "react";
-import { AiFillCar } from "react-icons/ai";
+import React, { useState } from "react";
+import { AiFillCar, AiFillCheckCircle } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router";
 
-const useStyles = createUseStyles({
+interface addProduct{
+    isAdded?:boolean;
+}
+const useStyles = createUseStyles<string,addProduct>({
     marginTop:{
      marginTop:"10px"   
     },
     body:{
+        position:"relative",
         margin:"0px 2vw",
+        overflow:"hidden",
         "&  .flex":{
             display:"flex",
             alignItems:"center"
@@ -21,6 +28,25 @@ const useStyles = createUseStyles({
             transition:".3s all",
             "&:hover":{
                 color:"#f00"
+            }
+        },
+    },
+    dialog:{
+        position:"absolute",
+        top:0,
+        right:"-30%",
+        fontSize:"1rem",
+        backgroundColor:"rgb(0 255 0 / 88%)",
+        boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px ",
+        padding:".5rem",
+        color:"#fff",
+        borderRadius:"10px",
+        transition:".5s all",
+        transform:(prop:addProduct) =>prop.isAdded ? "translateX(-130%)":"translateX(100%)",
+        "& .success":{
+            marginRight:".5rem",
+            "& > svg":{
+                fontSize:"2rem"
             }
         }
     },
@@ -49,6 +75,7 @@ const useStyles = createUseStyles({
             fontWeight:"bold"
         },
         "& > .ship":{
+            width:"max-content",
             marginTop:"20px",
             fontSize:"20px",
             transition:".8s all",
@@ -79,22 +106,53 @@ const useStyles = createUseStyles({
     "@media (max-width:900px)":{
 		col_6:{
             gridColumn:"span 12"
+        },
+        dialog:{
+            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-70%)":"translateX(100%)",
         }
 	},
+    "@media (max-width:600px)":{
+        dialog:{
+            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-50%)":"translateX(100%)",
+            fontSize:".5rem",
+            "&  svg":{
+                fontSize:"1rem"
+            }
+        }
+    }
 });
 const ProductDetail : React.FC = ()=>{
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const param = useParams();
     const {id} = param;
-    const classes = useStyles();
     const product = products.find(product => product.id === id);
+    const [isAdded,setAdded] = useState(false);
+    const classes = useStyles({isAdded:isAdded});
     const goBack = () =>{
         navigate(-1);
+    }
+    const addToCart = ()=>{
+        dispatch(addNewProduct({payload:product}));
+        setAdded(true);
+        setTimeout(()=>{
+            setAdded(false);
+        },1000);
     }
     return(<>
     <MainHeader/>
     <div className={classes.marginTop}>
         <div className={classes.body}>
+            <div className={classes.dialog}>
+                <div className="flex">
+                    <div className="success">
+                        <AiFillCheckCircle/>
+                    </div>
+                    <div className="info">
+                        <p>This product has been added to cart</p>
+                    </div>
+                </div>
+            </div>
             <div className="flex go_back" onClick={goBack}>
                 <BiArrowBack/>
                 <span>Back</span>
@@ -114,16 +172,16 @@ const ProductDetail : React.FC = ()=>{
                         <div className="price">
                             <h3>{product?.price}</h3>
                         </div>
-                        <div className="quanlity">
-                            <p>Quanlity:</p>
-                            <select name="quanlity" id="quanlity">
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
+                        <div className="quantity">
+                            <p>Quantity:</p>
+                            <select name="quantity" id="quantity">
+                                <option key={1} value={1}>1</option>
+                                <option key={2} value={2}>2</option>
+                                <option key={3} value={3}>3</option>
                             </select>
                         </div>
                         <p className="customer">Maximum 3 units per customer</p>
-                        <button className={classes.button}>ADD TO CART</button>
+                        <button className={classes.button} onClick={addToCart}>ADD TO CART</button>
                         <div className="flex ship">
                             <AiFillCar/>
                             <span>Free Shipping $100+</span>
@@ -132,7 +190,9 @@ const ProductDetail : React.FC = ()=>{
                             {product?.description?.split("\n").map( line => <p>{line}</p>)}
                         </Expand>
                         <Expand title="Questions & Answer">
-                            {product?.questions?.map(question => <Questions username={question.username} avatarUrl={question.avatarUrl} comment={question.comment} time={question.time} isStore={question?.isStore}/>)}
+                            {product?.questions?.map((question,index)=>{
+                                return <Questions key={index} username={question.username} avatarUrl={question.avatarUrl} comment={question.comment} time={question.time} isStore={question?.isStore}/>
+                            })}
                         </Expand>
                         <Expand title="Shipping Delay & Returns">
                         {product?.shipping?.split("\n").map( line => <p>{line}</p>)}

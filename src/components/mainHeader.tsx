@@ -4,6 +4,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
 import { BiUser, BiCart, BiMenu } from "react-icons/bi";
 import { background, logo } from "images";
+import { useAppSelector } from "app/hooks";
+import { getProducts } from "features/cart/cartSlice";
 
 interface HeaderProps {
   open?: boolean;
@@ -11,6 +13,28 @@ interface HeaderProps {
 }
 
 const useStyles = createUseStyles<string, HeaderProps>({
+  cart:{
+    position:"relative",
+    display:"flex",
+    "& p":{
+      margin:0
+    },
+    "& > .quantities":{
+      position:"absolute",
+      width:"5px",
+      height:"5px",
+      borderRadius:"50%",
+      padding:"5px",
+      background:"#00ff00",
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      fontSize:"12px",
+      color:"#fff",
+      top:"-5px",
+      left:"13px",
+    }
+  },
   header:{
     position:"sticky",
     top:"0",
@@ -158,11 +182,20 @@ const getNavList = () => {
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
   const [isScrollDown,setScrollDown] = useState(false);
+  const productList = useAppSelector(getProducts);
   const navigate =  useNavigate();
   let classes = useStyles({ open: isOpened,scrollDown:isScrollDown});
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
+  const getQuantities = () : number=>{
+    let quantities = 0;
+    productList?.forEach((product)=>{
+      quantities += product.quantity || 1;
+    });
+    console.log(productList);
+     return quantities;
+  }
   const goToHome = ()=>{
     navigate("/");
   }
@@ -194,8 +227,11 @@ const MainHeader: React.FC = () => {
           <div>
             <GoSearch />
           </div>
-          <div>
+          <div className={classes.cart}>
             <BiCart />
+            <div className="quantities">
+              <p>{getQuantities()}</p>
+            </div>
           </div>
           <div>
           <NavLink
