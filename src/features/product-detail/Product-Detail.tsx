@@ -1,6 +1,6 @@
-import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useAppDispatch} from "app/hooks";
 import { Expand, Footer, MainHeader, TypeOfProduct, Questions } from "components";
-import { addNewProduct, getProducts } from "features/cart/cartSlice";
+import { addNewProduct } from "features/cart/cartSlice";
 import products from "models/product.model";
 import React, { useState } from "react";
 import { AiFillCar, AiFillCheckCircle } from "react-icons/ai";
@@ -36,7 +36,7 @@ const useStyles = createUseStyles<string,addProduct>({
         top:0,
         right:"-30%",
         fontSize:"1rem",
-        backgroundColor:"rgb(0 255 0 / 88%)",
+        backgroundColor:"rgb(0 255 0 / 70%)",
         boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px ",
         padding:".5rem",
         color:"#fff",
@@ -113,7 +113,7 @@ const useStyles = createUseStyles<string,addProduct>({
 	},
     "@media (max-width:600px)":{
         dialog:{
-            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-50%)":"translateX(100%)",
+            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-60%)":"translateX(100%)",
             fontSize:".5rem",
             "&  svg":{
                 fontSize:"1rem"
