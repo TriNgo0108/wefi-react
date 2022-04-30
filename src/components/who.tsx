@@ -9,7 +9,8 @@ const useStyles = createUseStyles({
         textAlign:"justify",
         marginBottom:"2rem",
         "& > img":{
-            width:"60%"
+            width:"60%",
+            transform:"inherit",
         },
         "&  h5":{
             fontSize:"1.5rem",
