@@ -17,3 +17,10 @@ export interface IReview{
     time?:string;
     isStore?:boolean;
 }
+
+export interface IAuthor{
+    name?:string;
+    alias?:string;
+    imageUrl?:string;
+    description?:string;
+}
