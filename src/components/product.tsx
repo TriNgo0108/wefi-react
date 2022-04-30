@@ -60,8 +60,8 @@ const Product: React.FC<IProduct> = (pros: IProduct) => {
 		  </div>
 		  <div className={classes.flex}>
 			  {
-				  types?.map((type)=>{
-					  return <TypeOfProduct type={type}></TypeOfProduct>
+				  types?.map((type,index)=>{
+					  return <TypeOfProduct key={index} type={type}></TypeOfProduct>
 				  })
 			  }
 		  </div>
