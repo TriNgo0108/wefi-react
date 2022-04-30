@@ -16,6 +16,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
   cart:{
     position:"relative",
     display:"flex",
+    justifyContent:"center",
     "& p":{
       margin:0
     },
@@ -32,7 +33,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
       fontSize:"12px",
       color:"#fff",
       top:"-5px",
-      left:"13px",
+      left:"45px",
     }
   },
   header:{
@@ -193,7 +194,6 @@ const MainHeader: React.FC = () => {
     productList?.forEach((product)=>{
       quantities += product.quantity || 1;
     });
-    console.log(productList);
      return quantities;
   }
   const goToHome = ()=>{
