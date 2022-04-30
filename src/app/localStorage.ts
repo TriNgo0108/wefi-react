@@ -14,7 +14,7 @@ export const loadState = () =>{
 
 export const saveState = (state:RootState) =>{
     try {
-        const serializedStated = JSON.stringify(state);
+        const serializedStated = JSON.stringify({cart:state.cart});
         localStorage.setItem('state',serializedStated);
     } catch (error) {
         
