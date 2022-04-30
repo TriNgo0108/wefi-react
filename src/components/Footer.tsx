@@ -61,7 +61,10 @@ const useStyles = createUseStyles({
     gridTemplateColumns: "repeat(4,1fr)",
     fontSize: "2.5rem",
     justifyItems: "center",
-    "& > svg": {
+    "& a":{
+      color:"#000"
+    },
+    "&  svg": {
       transition: "500ms all",
       padding: "10px 0px",
       cursor: "pointer",
@@ -151,7 +154,7 @@ const useStyles = createUseStyles({
       }
     },
     icon__buttons:{
-      gridColumn:"span 3"
+      gridColumn:"span 3",
     },
     form:{
       "& > button":{
@@ -178,10 +181,19 @@ const Footer: React.FC = () => {
             </div>
             <div className="grid_icon">
               <div className={classes.icon__buttons}>
-                <FaFacebook />
-                <AiFillTwitterCircle />
-                <AiFillInstagram />
-                <BsTelegram />
+
+                <a href="https://www.facebook.com/profile.php?id=100012024464622">
+                  <FaFacebook />
+                </a>
+                <a>
+                  <AiFillTwitterCircle />
+                </a>
+                <a>
+                  <AiFillInstagram />
+                </a>
+                <a>
+                  <BsTelegram />
+                </a>
               </div>
             </div>
             <div className={classes.subscriber}>
