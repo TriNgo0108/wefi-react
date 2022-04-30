@@ -7,6 +7,9 @@ import Product from "./product";
 import Expand from "./expand";
 import Avatar from "./avatar";
 import Questions from "./question";
+import Center from "./center";
+import Intro from "./intro";
+import Who from "./who";
 export {
     MainHeader,
     Footer,
@@ -16,5 +19,8 @@ export {
     Product,
     Expand,
     Avatar,
-    Questions
+    Questions,
+    Center,
+    Intro,
+    Who
 };

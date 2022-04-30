@@ -6,6 +6,7 @@ import { BiUser, BiCart, BiMenu } from "react-icons/bi";
 import { background, logo } from "images";
 import { useAppSelector } from "app/hooks";
 import { getProducts } from "features/cart/cartSlice";
+import { getToken } from "features/login/loginSlice";
 
 interface HeaderProps {
   open?: boolean;
@@ -173,7 +174,7 @@ const getNavList = () => {
           className={({ isActive }) =>
             "nav__link" + (isActive ? " activated" : "")
           }
-          to={`/${nav.split(" ").length < 2 ? nav : "aboutus"}`}
+          to={`/${nav.split(" ").length < 2 ? nav : "about-us"}`}
         >
           <li className="nav__item">{nav}</li>
         </NavLink>
@@ -184,6 +185,7 @@ const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
   const [isScrollDown,setScrollDown] = useState(false);
   const productList = useAppSelector(getProducts);
+  const token = useAppSelector(getToken);
   const navigate =  useNavigate();
   let classes = useStyles({ open: isOpened,scrollDown:isScrollDown});
   const handleToggleClick = () => {
@@ -229,9 +231,9 @@ const MainHeader: React.FC = () => {
           </div>
           <div className={classes.cart}>
             <BiCart />
-            <div className="quantities">
-              <p>{getQuantities()}</p>
-            </div>
+            { token && <div className="quantities">
+                         <p>{getQuantities()}</p>
+                      </div>}
           </div>
           <div>
           <NavLink

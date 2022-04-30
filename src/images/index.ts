@@ -19,6 +19,8 @@ import footer_image from "./footer_image.avif";
 import background from "./background.avif";
 import logo from "./logo.avif"
 import login_form from "./login_form.avif";
+import dance from "./dance.gif";
+import glenn from "./glenn.jpg";
 export {
   slider_1,
   slider_2,
@@ -40,5 +42,7 @@ export {
   footer_image,
   background,
   logo,
-  login_form
+  login_form,
+  dance,
+  glenn
 };

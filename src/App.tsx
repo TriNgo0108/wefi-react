@@ -7,6 +7,7 @@ import AnimePage from "features/anime/AnimePage";
 import MangaPage from "features/manga/mangaPage";
 import AccessoriesPage from "features/accessories/AccessoriesPAge";
 import ProductDetail from "features/product-detail/Product-Detail";
+import AboutUs from "features/aboutus/aboutUs";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
+          <Route path="/about-us" element={<AboutUs/>}/>
           <Route path="/login" element={<LoginPage/>}/>
           <Route path="/figure" element={<FigurePage/>}/>
           <Route path="/anime" element={<AnimePage/>}/>
