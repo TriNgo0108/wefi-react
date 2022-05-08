@@ -10,6 +10,7 @@ import Questions from "./question";
 import Center from "./center";
 import Intro from "./intro";
 import Who from "./who";
+import DialogSlide from "./dialogSlide";
 export {
     MainHeader,
     Footer,
@@ -22,5 +23,6 @@ export {
     Questions,
     Center,
     Intro,
-    Who
+    Who,
+    DialogSlide
 };

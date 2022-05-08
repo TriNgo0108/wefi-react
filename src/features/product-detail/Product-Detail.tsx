@@ -1,17 +1,15 @@
-import { useAppDispatch} from "app/hooks";
-import { Expand, Footer, MainHeader, TypeOfProduct, Questions } from "components";
+import { useAppDispatch, useAppSelector} from "app/hooks";
+import { Expand, Footer, MainHeader, TypeOfProduct, Questions, DialogSlide } from "components";
 import { addNewProduct } from "features/cart/cartSlice";
+import { getToken } from "features/login/loginSlice";
 import products from "models/product.model";
 import React, { useState } from "react";
-import { AiFillCar, AiFillCheckCircle } from "react-icons/ai";
+import { AiFillCar, AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { BiArrowBack } from "react-icons/bi";
 import { createUseStyles } from "react-jss";
 import { useNavigate, useParams } from "react-router";
 
-interface addProduct{
-    isAdded?:boolean;
-}
-const useStyles = createUseStyles<string,addProduct>({
+const useStyles = createUseStyles({
     marginTop:{
      marginTop:"10px"   
     },
@@ -30,25 +28,6 @@ const useStyles = createUseStyles<string,addProduct>({
                 color:"#f00"
             }
         },
-    },
-    dialog:{
-        position:"absolute",
-        top:0,
-        right:"-30%",
-        fontSize:"1rem",
-        backgroundColor:"rgb(0 255 0 / 70%)",
-        boxShadow:"rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px ",
-        padding:".5rem",
-        color:"#fff",
-        borderRadius:"10px",
-        transition:".5s all",
-        transform:(prop:addProduct) =>prop.isAdded ? "translateX(-130%)":"translateX(100%)",
-        "& .success":{
-            marginRight:".5rem",
-            "& > svg":{
-                fontSize:"2rem"
-            }
-        }
     },
     grid:{
         display:"grid",
@@ -107,19 +86,7 @@ const useStyles = createUseStyles<string,addProduct>({
 		col_6:{
             gridColumn:"span 12"
         },
-        dialog:{
-            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-70%)":"translateX(100%)",
-        }
 	},
-    "@media (max-width:600px)":{
-        dialog:{
-            transform:(prop:addProduct) =>prop.isAdded ? "translateX(-60%)":"translateX(100%)",
-            fontSize:".5rem",
-            "&  svg":{
-                fontSize:"1rem"
-            }
-        }
-    }
 });
 const ProductDetail : React.FC = ()=>{
     const dispatch = useAppDispatch();
@@ -127,8 +94,10 @@ const ProductDetail : React.FC = ()=>{
     const param = useParams();
     const {id} = param;
     const product = products.find(product => product.id === id);
+    const isLogin = useAppSelector(getToken);
     const [isAdded,setAdded] = useState(false);
-    const classes = useStyles({isAdded:isAdded});
+    const [isRequireLogin,setRequireLogin] = useState(false);
+    const classes = useStyles();
     const goBack = () =>{
         navigate(-1);
     }
@@ -139,20 +108,21 @@ const ProductDetail : React.FC = ()=>{
             setAdded(false);
         },1000);
     }
+    const requireLoginDialogSlide = () =>{
+        setRequireLogin(true);
+        setTimeout(()=>{
+            setRequireLogin(false);
+        },1000)
+    }
     return(<>
     <MainHeader/>
     <div className={classes.marginTop}>
         <div className={classes.body}>
-            <div className={classes.dialog}>
-                <div className="flex">
-                    <div className="success">
-                        <AiFillCheckCircle/>
-                    </div>
-                    <div className="info">
-                        <p>This product has been added to cart</p>
-                    </div>
-                </div>
-            </div>
+            {
+                isLogin ? 
+                    <DialogSlide open={isAdded} color="rgb(0 255 0 / 70%)" text="This product has been added to cart" icon={<AiFillCheckCircle/>}/>:
+                    <DialogSlide open={isRequireLogin} color="rgb(255 0 0 / 70%)" text="Please login to using this feature" icon={<AiFillCloseCircle/>}/>
+            }
             <div className="flex go_back" onClick={goBack}>
                 <BiArrowBack/>
                 <span>Back</span>
@@ -181,7 +151,7 @@ const ProductDetail : React.FC = ()=>{
                             </select>
                         </div>
                         <p className="customer">Maximum 3 units per customer</p>
-                        <button className={classes.button} onClick={addToCart}>ADD TO CART</button>
+                        <button className={classes.button} onClick={isLogin ? addToCart : requireLoginDialogSlide}>ADD TO CART</button>
                         <div className="flex ship">
                             <AiFillCar/>
                             <span>Free Shipping $100+</span>
