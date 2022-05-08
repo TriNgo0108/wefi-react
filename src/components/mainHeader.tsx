@@ -7,10 +7,13 @@ import { background, logo } from "images";
 import { useAppSelector } from "app/hooks";
 import { getProducts } from "features/cart/cartSlice";
 import { getToken } from "features/login/loginSlice";
+import DialogSlide from "./dialogSlide";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 interface HeaderProps {
   open?: boolean;
   scrollDown?: boolean;
+  isLogin?:boolean;
 }
 
 const useStyles = createUseStyles<string, HeaderProps>({
@@ -42,7 +45,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
     top:"0",
     zIndex:100,
     transform: (props:HeaderProps)=> props.scrollDown ? "translateY(-100%)":"unset",
-    transition:"all .3s"
+    transition:"all .3s",
   },
   header_layout: {
     "&::before":{
@@ -58,6 +61,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
     transition: "all 800ms",
     width:"100%",
     backgroundColor:"white",
+    overflow:"hidden",
     "& > .logo": {
       display: "flex",
       alignSelf: "center",
@@ -183,11 +187,12 @@ const getNavList = () => {
 };
 const MainHeader: React.FC = () => {
   const [isOpened, setOpen] = useState(false);
+  const [isRequireLogin,setRequireLogin] = useState(false);
   const [isScrollDown,setScrollDown] = useState(false);
   const productList = useAppSelector(getProducts);
   const token = useAppSelector(getToken);
   const navigate =  useNavigate();
-  let classes = useStyles({ open: isOpened,scrollDown:isScrollDown});
+  let classes = useStyles({ open: isOpened,scrollDown:isScrollDown,isLogin:isRequireLogin});
   const handleToggleClick = () => {
     setOpen(!isOpened);
   };
@@ -200,6 +205,20 @@ const MainHeader: React.FC = () => {
   }
   const goToHome = ()=>{
     navigate("/");
+  }
+  const requireLoginDialog = () =>{
+    setRequireLogin(true);
+    setTimeout(()=>{
+      setRequireLogin(false);
+    },1000)
+  }
+  const onCartClick = () =>{
+    if (token){
+      navigate("/cart");
+    }
+    else{
+      requireLoginDialog();
+    }
   }
   useEffect(()=>{
     let lastScroll = 0;
@@ -229,7 +248,7 @@ const MainHeader: React.FC = () => {
           <div>
             <GoSearch />
           </div>
-          <div className={classes.cart}>
+          <div className={classes.cart} onClick={onCartClick}>
             <BiCart />
             { token && <div className="quantities">
                          <p>{getQuantities()}</p>
@@ -271,6 +290,7 @@ const MainHeader: React.FC = () => {
             </ul>
           </div>
       </div>
+      <DialogSlide color="rgb(255 0 0 / 80%)" open={isRequireLogin} text="Please login to using this feature" icon={<AiFillCloseCircle/>} />
     </header>
   );
 };

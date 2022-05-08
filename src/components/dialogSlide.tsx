@@ -1,10 +1,5 @@
-import React, { ReactElement, useState } from "react";
-import { IconType } from "react-icons";
-import { AiFillCheckCircle } from "react-icons/ai";
+import React, { ReactElement } from "react";
 import { createUseStyles } from "react-jss";
-interface addProduct{
-    isAdded?:boolean;
-}
 interface IProps{
     text?:string;
     color?:string;
@@ -13,8 +8,8 @@ interface IProps{
 }
 const useStyles = createUseStyles<string,IProps>({
     dialog:{
+        marginTop:"0.5rem",
         position:"absolute",
-        top:0,
         right:"-30%",
         fontSize:"1rem",
         backgroundColor:(props:IProps)=> props.color,
@@ -23,7 +18,12 @@ const useStyles = createUseStyles<string,IProps>({
         color:"#fff",
         borderRadius:"10px",
         transition:".5s all",
+        zIndex:1000,
         transform:(props:IProps) =>props.open ? "translateX(-30vw)":"translateX(100%)",
+        "& .flex":{
+            display:"flex",
+            alignItems:"center"
+        },
         "& .success":{
             marginRight:".5rem",
             "& > svg":{
