@@ -9,6 +9,8 @@ const useStyles = createUseStyles({
         gridTemplateColumns:"repeat(12,1fr)",
         color:"#B22D29",
         "& > .logo":{
+            textDecoration:"unset",
+            color:"#B22D29",
             gridColumn:"span 2",
             display:"flex",
             flexDirection:"row",
@@ -49,12 +51,11 @@ const LoginHeader : React.FC = () =>{
     return <>
     <header>
         <div className={classes.grid}>
-            <div className="logo">
+            <a className="logo" href="/">
                 <img src={logo} width="80px" height="80px" alt="logo"/>
                 <div className="login">
                     Login
-                </div>
-            </div>
+                </div>            </a>
             <div className="help">
                 Need help ?
             </div>
