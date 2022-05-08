@@ -18,6 +18,9 @@ export const loadState = () =>{
             preState.login = {token:token,code:200,isWaiting:false};
             return preState;
         }
+        else{
+            localStorage.clear();
+        }
         return JSON.parse(serializedStated);
     }catch(e){
         return undefined;
