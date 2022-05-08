@@ -18,6 +18,13 @@ const useStyles = createUseStyles({
       flexDirection:"row",
       alignItems:"center",
       border:"1px #00000061 solid",
+      padding:"4px",
+      transition:".3s all",
+      outline:"#00000061 solid 2px",
+      "&:focus-within":{
+        outline:"#4CAF50 solid 2px",
+      },
+      borderRadius:"4px",
       "& > input": {
         fontSize: "1rem",
         height: "30px",
