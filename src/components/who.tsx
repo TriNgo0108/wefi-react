@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
         "& > img":{
             width:"60%",
             transform:"inherit",
+            boxShadow:"rgb(0 0 0 / 30%) 8px 19px 38px, rgb(0 0 0 / 22%) 8px 15px 12px"
         },
         "&  h5":{
             fontSize:"1.5rem",
@@ -30,7 +31,7 @@ const useStyles = createUseStyles({
         border:"1px #cdc3c3 solid",
         marginLeft:"-10%",
         borderRadius:"4px",
-        boxShadow:"rgba(0, 0, 0, 0.3) 8px 19px 38px, rgba(0, 0, 0, 0.22) 8px 15px 12px ",
+        boxShadow:"rgba(0, 0, 0, 0.3) 8px 30px 12px, rgba(0, 0, 0, 0.22) -8px -30px 12px ",
     },
     "@media (max-width:900px)":{
         flex:{
