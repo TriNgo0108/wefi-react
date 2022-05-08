@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
     display: "grid",
     gridTemplateColumns: "repeat(12,1fr)",
     backgroundImage: `url(${login_form})`,
+    backgroundSize:"cover",
     height: "100%",
     backgroundPosition: "bottom",
 
