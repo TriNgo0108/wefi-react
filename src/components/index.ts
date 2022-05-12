@@ -11,6 +11,7 @@ import Center from "./center";
 import Intro from "./intro";
 import Who from "./who";
 import DialogSlide from "./dialogSlide";
+import Item from "./Item";
 export {
     MainHeader,
     Footer,
@@ -24,5 +25,6 @@ export {
     Center,
     Intro,
     Who,
-    DialogSlide
+    DialogSlide,
+    Item,
 };

@@ -24,3 +24,7 @@ export interface IAuthor{
     imageUrl?:string;
     description?:string;
 }
+export interface IQuantityProduct{
+    quantity?:number;
+    product?:IProduct;
+}

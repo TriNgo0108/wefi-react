@@ -102,7 +102,7 @@ const ProductDetail : React.FC = ()=>{
         navigate(-1);
     }
     const addToCart = ()=>{
-        dispatch(addNewProduct({payload:product}));
+        dispatch(addNewProduct(product));
         setAdded(true);
         setTimeout(()=>{
             setAdded(false);

@@ -1,12 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
-import { IProduct } from "interfaces/interfaces";
+import { IQuantityProduct } from "interfaces/interfaces";
 import isEqual from "lodash.isequal";
 
-export interface IQuantityProduct{
-    quantity?:number;
-    product?:IProduct;
-}
+
 
 export interface cartState{
     products?:IQuantityProduct[],
@@ -43,14 +40,17 @@ export const cartSlice = createSlice({
         increaseQuantityProduct:(state,action)=>{
             state.products?.forEach((product,index)=>{
                 if(isEqual(product.product,action.payload)){
-                   product.quantity = product.quantity || 0 + 1;
+                    console.log(action.payload);
+                    let quantity = state.products![index].quantity || 1;
+                    state.products![index].quantity = quantity + 1;
                 }
             })
         },
         decreaseQuantityProduct:(state,action)=>{
             state.products?.forEach((product,index)=>{
                 if (isEqual(product.product,action.payload) && (product?.quantity || 0)> 1){
-                    product.quantity = product.quantity || 2 - 1;
+                    let quantity = state.products![index].quantity || 2;
+                    state.products![index].quantity = quantity - 1;
                 }
             });
         },

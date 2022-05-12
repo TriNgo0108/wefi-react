@@ -3,6 +3,7 @@ import counterReducer from '../features/counter/counterSlice';
 import loginReducer from "features/login/loginSlice";
 import cartReducer from "features/cart/cartSlice";
 import { loadState } from './localStorage';
+import logger from 'redux-logger'
 const persistedState = loadState();
 export const store = configureStore({
   reducer: {
@@ -10,7 +11,8 @@ export const store = configureStore({
     login: loginReducer,
     cart:cartReducer,
   },
-  preloadedState:persistedState
+  preloadedState:persistedState,
+  // middleware:(getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export type AppDispatch = typeof store.dispatch;

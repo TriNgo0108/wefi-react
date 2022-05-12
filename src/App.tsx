@@ -8,6 +8,7 @@ import MangaPage from "features/manga/mangaPage";
 import AccessoriesPage from "features/accessories/AccessoriesPAge";
 import ProductDetail from "features/product-detail/Product-Detail";
 import AboutUs from "features/aboutus/aboutUs";
+import CartPage from "features/cart/cart";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/manga" element={<MangaPage/>}/>
           <Route path="/accessories" element={<AccessoriesPage/>}/>
           <Route path="/product-detail/:id" element={<ProductDetail/>}/>
+          <Route path="/cart" element={<CartPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>
