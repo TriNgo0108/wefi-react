@@ -21,7 +21,11 @@ export const LoginWithEmail = createAsyncThunk(
 export const loginSlice = createSlice({
     name:'login',
     initialState:initialState,
-    reducers:{},
+    reducers:{
+        signOut:(state)=>{
+            state.token = "";
+        }
+    },
     extraReducers:(builder)=>{
         builder.addCase(LoginWithEmail.fulfilled,(state,{payload}:PayloadAction<LoginState>)=>{
             state.token = payload.token;
