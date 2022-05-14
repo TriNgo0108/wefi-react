@@ -7,14 +7,17 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import { saveState } from 'app/localStorage';
 import throttle from 'lodash.throttle';
+import { CookiesProvider } from 'react-cookie';
 store.subscribe(throttle(()=>{
   saveState(store.getState());
 },1000));
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App/>
-    </Provider>
+      <CookiesProvider>
+        <Provider store={store}>
+          <App/>
+        </Provider>
+      </CookiesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

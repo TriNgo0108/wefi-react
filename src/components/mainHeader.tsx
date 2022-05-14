@@ -46,6 +46,7 @@ const useStyles = createUseStyles<string, HeaderProps>({
     zIndex:100,
     transform: (props:HeaderProps)=> props.scrollDown ? "translateY(-100%)":"unset",
     transition:"all .3s",
+    overflowX:"clip",
   },
   header_layout: {
     "&::before":{
@@ -61,7 +62,6 @@ const useStyles = createUseStyles<string, HeaderProps>({
     transition: "all 800ms",
     width:"100%",
     backgroundColor:"white",
-    overflow:"hidden",
     "& > .logo": {
       display: "flex",
       alignSelf: "center",
