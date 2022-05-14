@@ -4,12 +4,12 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { GoSearch } from "react-icons/go";
 import { BiUser, BiCart, BiMenu } from "react-icons/bi";
 import { background, logo } from "images";
-import { useAppSelector } from "app/hooks";
+import { useAppDispatch, useAppSelector } from "app/hooks";
 import { getProducts } from "features/cart/cartSlice";
-import { getToken } from "features/login/loginSlice";
+import { getToken, logOut } from "features/login/loginSlice";
 import DialogSlide from "./dialogSlide";
 import { AiFillCloseCircle } from "react-icons/ai";
-
+import { Cookies } from "react-cookie";
 interface HeaderProps {
   open?: boolean;
   scrollDown?: boolean;
@@ -127,6 +127,29 @@ const useStyles = createUseStyles<string, HeaderProps>({
       }
     },
   },
+  logout:{
+    position:"relative",
+    "& > .dropdown":{
+      transition:".8s all",
+      position:"absolute",
+      overflow:"hidden",
+      right:"20%",
+      backgroundColor:"violet",
+      color:"white",
+      width:"100px",
+      height:"0px",
+      borderRadius:"4px",
+      "& p":{
+        margin:0,
+        padding:"10px"
+      }
+    },
+    "&:hover":{
+      "& > .dropdown":{
+        height:"50px"
+      }
+    }
+  },
   "@media (max-width:749px)": {
     header_layout: {
       "& > .menu": {
@@ -192,6 +215,7 @@ const MainHeader: React.FC = () => {
   const productList = useAppSelector(getProducts);
   const token = useAppSelector(getToken);
   const navigate =  useNavigate();
+  const dispatch = useAppDispatch();
   let classes = useStyles({ open: isOpened,scrollDown:isScrollDown,isLogin:isRequireLogin});
   const handleToggleClick = () => {
     setOpen(!isOpened);
@@ -219,6 +243,16 @@ const MainHeader: React.FC = () => {
     else{
       requireLoginDialog();
     }
+  }
+  const onLogin = () =>{
+    navigate("/login");
+  }
+  const onLogout = ()=>{
+    dispatch(logOut());
+    localStorage.clear();
+    const cookies = new Cookies();
+    cookies.remove("token");
+    navigate("/");
   }
   useEffect(()=>{
     let lastScroll = 0;
@@ -254,15 +288,11 @@ const MainHeader: React.FC = () => {
                          <p>{getQuantities()}</p>
                       </div>}
           </div>
-          <div>
-          <NavLink
-                  className={({ isActive }) =>
-                    "nav__link" + (isActive ? " activated" : "")
-                  }
-                  to="/login"
-                >
-            {<BiUser />}
-            </NavLink>
+          <div className={classes.logout}>
+            <BiUser onClick={onLogin}/>
+            {token && <div className="dropdown">
+              <p onClick={onLogout}>Log out</p>
+            </div>}
           </div>
         </div>
         <div className="toggle">

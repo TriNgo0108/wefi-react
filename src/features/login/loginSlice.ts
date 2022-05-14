@@ -22,7 +22,7 @@ export const loginSlice = createSlice({
     name:'login',
     initialState:initialState,
     reducers:{
-        signOut:(state)=>{
+        logOut: (state)=>{
             state.token = "";
         }
     },
@@ -40,4 +40,5 @@ export const loginSlice = createSlice({
 export const getToken = (state: RootState) => state.login.token;
 export const getIsWaiting = (state:RootState) => state.login.isWaiting;
 export const getCode = (state:RootState) => state.login.code;
+export const {logOut} = loginSlice.actions;
 export default loginSlice.reducer;
