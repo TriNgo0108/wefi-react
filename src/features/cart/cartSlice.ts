@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 import { IQuantityProduct } from "interfaces/interfaces";
 import isEqual from "lodash.isequal";
@@ -19,16 +19,16 @@ export const cartSlice = createSlice({
     name:'cart',
     initialState:initialState,
     reducers:{
-        addNewProduct:(state,action)=>{
+        addNewProduct:(state,action:PayloadAction<IQuantityProduct>)=>{
             let isExist = false;
             state.products?.forEach((product,index)=>{
-                if (isEqual(product.product,action.payload)){
+                if (isEqual(product.product,action.payload.product)){
                     let quantity = state.products![index].quantity || 1;
-                    state.products![index].quantity = quantity + 1;
+                    state.products![index].quantity = quantity + (action.payload.quantity || 1);
                     isExist = true
                 }
             });
-            !isExist &&state.products?.push({quantity:1,product:action.payload});
+            !isExist &&state.products?.push({quantity:action.payload.quantity,product:action.payload.product});
         },
         removeProduct:(state,action)=>{
             state.products?.forEach((product,index)=>{

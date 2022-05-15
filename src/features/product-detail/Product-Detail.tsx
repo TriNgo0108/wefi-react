@@ -97,12 +97,13 @@ const ProductDetail : React.FC = ()=>{
     const isLogin = useAppSelector(getToken);
     const [isAdded,setAdded] = useState(false);
     const [isRequireLogin,setRequireLogin] = useState(false);
+    const [quantity,setQuantity] = useState(1);
     const classes = useStyles();
     const goBack = () =>{
         navigate(-1);
     }
     const addToCart = ()=>{
-        dispatch(addNewProduct(product));
+        dispatch(addNewProduct({product:product,quantity:quantity}));
         setAdded(true);
         setTimeout(()=>{
             setAdded(false);
@@ -113,6 +114,15 @@ const ProductDetail : React.FC = ()=>{
         setTimeout(()=>{
             setRequireLogin(false);
         },1000)
+    }
+    const onSelectChange = (event:React.ChangeEvent<HTMLSelectElement>) =>{
+        const currentQuantity = Number.parseInt(event.target.value);
+        if (!isNaN(currentQuantity)){
+           setQuantity(currentQuantity);
+            } 
+        else{
+            setQuantity(1);
+            }
     }
     return(<>
     <MainHeader/>
@@ -134,7 +144,9 @@ const ProductDetail : React.FC = ()=>{
                     </div>
                     <div className={classes.col_6}>
                         <div className="flex center">
-                            {product?.types?.map(type=> <TypeOfProduct type={type}/>)}
+                            {product?.types?.map((type,index)=>{
+                                return <TypeOfProduct key={index} type={type}/>
+                            })}
                         </div>
                         <div className="name">
                             <p>{product?.name}</p>
@@ -144,7 +156,7 @@ const ProductDetail : React.FC = ()=>{
                         </div>
                         <div className="quantity">
                             <p>Quantity:</p>
-                            <select name="quantity" id="quantity">
+                            <select name="quantity" id="quantity" onChange={onSelectChange}>
                                 <option key={1} value={1}>1</option>
                                 <option key={2} value={2}>2</option>
                                 <option key={3} value={3}>3</option>
@@ -157,7 +169,10 @@ const ProductDetail : React.FC = ()=>{
                             <span>Free Shipping $100+</span>
                         </div>
                         <Expand title="Description" >
-                            {product?.description?.split("\n").map( line => <p>{line}</p>)}
+                            {product?.description?.split("\n").map((line,index)=>{
+                                return <p key={index}>{line}</p>
+                            })}
+                            
                         </Expand>
                         <Expand title="Questions & Answer">
                             {product?.questions?.map((question,index)=>{
@@ -165,7 +180,9 @@ const ProductDetail : React.FC = ()=>{
                             })}
                         </Expand>
                         <Expand title="Shipping Delay & Returns">
-                        {product?.shipping?.split("\n").map( line => <p>{line}</p>)}
+                        {product?.shipping?.split("\n").map((line,index)=>{
+                                return <p key={index}>{line}</p>
+                            })}
                         </Expand>
                         <Expand title="Coronavirus Impact On All Orders"></Expand>
                     </div>
