@@ -248,11 +248,10 @@ const MainHeader: React.FC = () => {
     navigate("/login");
   }
   const onLogout = ()=>{
-    dispatch(logOut());
     localStorage.clear();
     const cookies = new Cookies();
     cookies.remove("token");
-    navigate("/");
+    dispatch(logOut());
   }
   useEffect(()=>{
     let lastScroll = 0;

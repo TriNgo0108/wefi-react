@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
+import { Cookies } from "react-cookie";
 import { LoginAPI } from "./loginAPI";
 
 interface LoginState {
@@ -23,7 +24,6 @@ export const loginSlice = createSlice({
     initialState:initialState,
     reducers:{
         logOut: (state)=>{
-            localStorage.clear();
             state.token = "";
         }
     },

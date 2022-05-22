@@ -14,9 +14,6 @@ export const loadState = () =>{
             preState.login = {token:token,code:200,isWaiting:false};
             return preState;
         }
-        else{
-            localStorage.clear();
-        }
         return JSON.parse(serializedStated);
     }catch(e){
         return undefined;
@@ -29,11 +26,14 @@ export const saveState = (state:RootState) =>{
         const cookies = new Cookies();
         localStorage.setItem('state',serializedStated);
         let isToken = cookies.get("token");
-        if (!isToken){
+        if (!isToken && state.login.token){
             let expireDate = new Date();
             expireDate.setTime(expireDate.getTime()+ (2*60*60*1000));
-            console.log(state.login.token);
             cookies.set("token",state.login.token,{expires:expireDate});
+        }
+        if (!state.login.token){
+            cookies.remove("token");
+            localStorage.clear();
         }
     } catch (error) {
         
