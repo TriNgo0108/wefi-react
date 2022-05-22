@@ -27,4 +27,5 @@ export interface IAuthor{
 export interface IQuantityProduct{
     quantity?:number;
     product?:IProduct;
+    id?:string;
 }

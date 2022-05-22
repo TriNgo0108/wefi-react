@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 import { IQuantityProduct } from "interfaces/interfaces";
 import isEqual from "lodash.isequal";
-
+import { v4 as uuidv4 } from 'uuid';
 
 
 export interface cartState{
@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
                     isExist = true
                 }
             });
-            !isExist &&state.products?.push({quantity:action.payload.quantity,product:action.payload.product});
+            !isExist &&state.products?.push({quantity:action.payload.quantity,product:action.payload.product,id:uuidv4()});
         },
         removeProduct:(state,action:PayloadAction<IQuantityProduct>)=>{
             const newProducts = state.products?.filter(product => !isEqual(product.product,action.payload.product));
