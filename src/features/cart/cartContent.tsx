@@ -2,8 +2,10 @@ import { useAppSelector } from "app/hooks";
 import { Center, Item } from "components";
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { TransitionGroup,CSSTransition } from "react-transition-group";
 import { deleteDollarSymbol, sumOfItem } from "utilities/calculateCart";
 import { getProducts } from "./cartSlice";
+import "./cart.css";
 
 const useStyles = createUseStyles({
     bag:{
@@ -37,8 +39,8 @@ const useStyles = createUseStyles({
             gridColumn:"8 / span 3",
         },
         "& > .sum":{
-            gridColumn:"11 / span 2"
-        }
+            gridColumn:"11 / span 1"
+        },
     },
     total:{
         position:"relative",
@@ -97,9 +99,14 @@ const CartContent :React.FC = () =>{
             <p className="price">Price</p>
             <p className="sum">Sum</p>
         </div>
+        <TransitionGroup>
         {products?.map((product,index)=>{
-            return <Item key={index} quantity={product.quantity} product={product.product}/>
+            // return <Item key={index} quantity={product.quantity} product={product.product}/>
+            return <CSSTransition classNames="item" key={index} timeout={800}>
+                        <Item  quantity={product.quantity} product={product.product}/>
+                    </CSSTransition>
         })}
+        </TransitionGroup>
         <div className={classes.total}>
             <div className="total_content">
                 <h5>Total:</h5>

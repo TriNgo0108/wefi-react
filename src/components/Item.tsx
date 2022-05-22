@@ -1,17 +1,25 @@
 import { useAppDispatch } from "app/hooks";
-import { decreaseQuantityProduct, increaseQuantityProduct } from "features/cart/cartSlice";
+import { decreaseQuantityProduct, increaseQuantityProduct, removeProduct } from "features/cart/cartSlice";
 import { IQuantityProduct } from "interfaces/interfaces";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { deleteDollarSymbol, sumOfItem } from "utilities/calculateCart";
-
-const useStyles = createUseStyles({
+import {TiDeleteOutline} from "react-icons/ti";
+interface IStyle{
+  isDelete?:string
+}
+const useStyles = createUseStyles<string,IStyle>({
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(12,1fr)",
+    border:"#9d8b8b 1px solid",
+    padding:"10px",
+    borderRadius:"4px",
     alignItems: "center",
     textAlign: "left",
     margin: "10px 0px",
+    boxShadow:"2px 2px 2px #9d8b8b",
+    transition:".8s all",
     "& > .item_name": {
       gridColumn: "1/ span 5",
     },
@@ -50,7 +58,17 @@ const useStyles = createUseStyles({
       gridColumn: "8 / span 3",
     },
     "& > .item_sum": {
-      gridColumn: "11 / span 2",
+      gridColumn: "11 / span 1",
+    },
+    "& > .delete":{
+      gridColumn:"12 / span 1",
+      fontSize:"1.5rem",
+      cursor:"pointer",
+      transition:".5s all",
+      textAlign:"center",
+      "&:hover":{
+        color:"red"
+      }
     },
     "& > .flex": {
       display: "flex",
@@ -69,17 +87,6 @@ const useStyles = createUseStyles({
   },
 });
 
-// const deleteDollarSymbol = (price: string): string => {
-//   const normalizePrice = price.trim();
-//   const nonDollarSymbol = normalizePrice.slice(1);
-//   return nonDollarSymbol;
-// };
-// const sumOfItem = (price: string, quantity: number): number => {
-//   const priceNumber = Number.parseFloat(price);
-//   if (isNaN(priceNumber)) return 0;
-//   return priceNumber * quantity;
-// };
-
 const Item: React.FC<IQuantityProduct> = (props: IQuantityProduct) => {
   const { quantity, product } = props;
   const classes = useStyles();
@@ -93,6 +100,9 @@ const Item: React.FC<IQuantityProduct> = (props: IQuantityProduct) => {
   }
   const onDecreaseClick = () => {
       dispatch(decreaseQuantityProduct(product));
+  }
+  const onDeleteClick =  () =>{
+    dispatch(removeProduct({product}));
   }
   return (
     <>
@@ -109,7 +119,8 @@ const Item: React.FC<IQuantityProduct> = (props: IQuantityProduct) => {
           <div className="decrease" onClick={onDecreaseClick}>-</div>
         </div>
         <div className="item_price">{product?.price}</div>
-        <div className="item_sum">{`$${sum}`}</div>
+        <div className="item_sum">{`$${sum.toFixed(2)}`}</div>
+        <div className="delete" onClick={onDeleteClick}><TiDeleteOutline/></div>
       </div>
     </>
   );

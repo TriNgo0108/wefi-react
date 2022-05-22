@@ -30,17 +30,13 @@ export const cartSlice = createSlice({
             });
             !isExist &&state.products?.push({quantity:action.payload.quantity,product:action.payload.product});
         },
-        removeProduct:(state,action)=>{
-            state.products?.forEach((product,index)=>{
-                if (isEqual(product.product,action.payload)){
-                    state.products?.splice(index,1);
-                }
-            })
+        removeProduct:(state,action:PayloadAction<IQuantityProduct>)=>{
+            const newProducts = state.products?.filter(product => !isEqual(product.product,action.payload.product));
+            state.products = newProducts;
         },
         increaseQuantityProduct:(state,action)=>{
             state.products?.forEach((product,index)=>{
                 if(isEqual(product.product,action.payload)){
-                    console.log(action.payload);
                     let quantity = state.products![index].quantity || 1;
                     state.products![index].quantity = quantity + 1;
                 }
@@ -60,7 +56,7 @@ export const cartSlice = createSlice({
     }
 });
 
-export const {addNewProduct,increaseQuantityProduct,decreaseQuantityProduct,payment} = cartSlice.actions;
+export const {addNewProduct,increaseQuantityProduct,decreaseQuantityProduct,payment,removeProduct} = cartSlice.actions;
 
 export const getProducts  = (state:RootState) => state.cart.products;
 export const selectPaymentStatus = (state:RootState) => state.cart.paymentStatus;
