@@ -23,6 +23,7 @@ export const loginSlice = createSlice({
     initialState:initialState,
     reducers:{
         logOut: (state)=>{
+            localStorage.clear();
             state.token = "";
         }
     },
