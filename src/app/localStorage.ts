@@ -3,6 +3,7 @@ import { Cookies } from "react-cookie";
 export const loadState = () =>{
     try{
         const serializedStated = localStorage.getItem('state');
+        console.log(serializedStated);
         const cookies = new Cookies();
         let token = cookies.get("token");
         if (serializedStated === null){
@@ -32,7 +33,7 @@ export const saveState = (state:RootState) =>{
             cookies.set("token",state.login.token,{expires:expireDate});
         }
         if (!state.login.token){
-            cookies.remove("token");
+            cookies.remove("token",{path:"/"});
             localStorage.clear();
         }
     } catch (error) {

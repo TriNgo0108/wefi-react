@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
-import { Cookies } from "react-cookie";
 import { LoginAPI } from "./loginAPI";
 
 interface LoginState {
@@ -23,8 +22,10 @@ export const loginSlice = createSlice({
     name:'login',
     initialState:initialState,
     reducers:{
-        logOut: (state)=>{
-            state.token = "";
+        logOut: ()=>{
+             // From here we can take action only at this "login" state
+            // But, as we have taken care of this particular "logout" action
+            // in rootReducer, we can use it to CLEAR the complete Redux Store's state
         }
     },
     extraReducers:(builder)=>{
