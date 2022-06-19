@@ -12,6 +12,7 @@ const useStyles = createUseStyles({
     },
     intro:{
         position:"relative",
+        overflow:"hidden"
     },
     dance:{
         position:"absolute",
