@@ -3,7 +3,6 @@ import { Cookies } from "react-cookie";
 export const loadState = () =>{
     try{
         const serializedStated = localStorage.getItem('state');
-        console.log(serializedStated);
         const cookies = new Cookies();
         let token = cookies.get("token");
         if (serializedStated === null){
