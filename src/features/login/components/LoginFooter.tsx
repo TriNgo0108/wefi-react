@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
         color:"white",
         textAlign:"center",
         fontSize:"1rem",
-        height:"100px",
+        height:"20vh",
         display:"flex",
         justifyContent:"center",
         alignItems:"center"

@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
     gridTemplateColumns: "repeat(12,1fr)",
     backgroundImage: `url(${login_form})`,
     backgroundSize:"cover",
-    height: "100%",
+    height: "80vh",
     backgroundPosition: "bottom",
 
     "& > .form__wapper": {
