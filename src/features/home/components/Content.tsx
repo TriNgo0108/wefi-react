@@ -55,6 +55,7 @@ const useStyles = createUseStyles({
     gridColumn: "4 / span 3",
     cursor: "pointer",
     position: "relative",
+    zIndex:-1,
     "& > div": {
       width: "100% !important",
       height: "100% !important",
@@ -104,12 +105,13 @@ const itemVariant = {
   visible: {
     y: 0,
     opacity: 1,
-
+    filter:"blur(0px)",
     transition: { duration: 0.5, delay: 0.4 },
   },
   hidden: {
     opacity: 0,
     y: -250,
+    filter:"blur(50px)",
     ease: "easeInOut",
     transition: { duration: 0.5, delay: 0.4 },
   },
@@ -137,6 +139,7 @@ const Content: React.FC = () => {
           alt="per-order"
           text="Pre-order"
           delay={0}
+          zIndex={0}
         />
 
         <ContentItem
@@ -145,6 +148,7 @@ const Content: React.FC = () => {
           alt="takagi"
           text="Takagi"
           delay={0.1}
+          zIndex={0}
         />
 
         <ContentItem
@@ -153,6 +157,7 @@ const Content: React.FC = () => {
           alt="kanojou"
           text="Rent-A-Girlfriend"
           delay={0.2}
+          zIndex={0}
         />
 
         <ContentItem
@@ -161,6 +166,7 @@ const Content: React.FC = () => {
           alt="genshin"
           text="Genshin Impact"
           delay={0.3}
+          zIndex ={-1}
         />
         <motion.div
           className={classes.pandoru}
@@ -178,6 +184,7 @@ const Content: React.FC = () => {
           alt="sayu"
           text="Sayu"
           delay={0.5}
+          zIndex = {-2}
         />
         <ContentItem
           className="in__stock"
@@ -185,6 +192,7 @@ const Content: React.FC = () => {
           alt="in__stock"
           text="In stock"
           delay={0.6}
+          zIndex= {-2}
         />
 
         <ContentItem
@@ -193,6 +201,7 @@ const Content: React.FC = () => {
           alt="best__girl"
           text="Best girl"
           delay={0.6}
+          zIndex={-2}
         />
       </div>
     </>

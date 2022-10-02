@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { motion, useAnimation, useMotionValue } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
@@ -8,8 +9,12 @@ interface IProps {
   alt?: string;
   text?: string;
   delay?:number;
+  zIndex:number;
+} 
+interface IStyles{
+  zIndex: number
 }
-const useStyles = createUseStyles({
+const useStyles = createUseStyles<string, IStyles>({
   text: {
     position: "absolute",
     zIndex: 10,
@@ -21,16 +26,19 @@ const useStyles = createUseStyles({
     color: "white",
     fontSize: "1.5rem",
   },
+   item:{
+    zIndex:(prop:IStyles)=> prop.zIndex
+   }
 });
 
 const ContentItem: React.FC<IProps> = (props: IProps) => {
 
-  const { imageUrl, className, alt, text, delay } = props;
+  const { imageUrl, className, alt, text, delay,zIndex } = props;
   const itemVariant = {
     visible: {
       y:0,
       opacity:1,
-      
+      filter: "blur(0px)",
       transition: { duration: 0.5,
         delay:delay,
 
@@ -38,6 +46,7 @@ const ContentItem: React.FC<IProps> = (props: IProps) => {
 
     },
     hidden: { opacity:0, y: -250, ease: "easeInOut",
+    filter:"blur(50px)",
     transition: { duration: 0.5,
       delay:delay
      } },
@@ -53,7 +62,7 @@ const ContentItem: React.FC<IProps> = (props: IProps) => {
     }
   }, [control, inView]);
 
-  const classes = useStyles();
+  const classes = useStyles({zIndex: zIndex});
   
 
   return (
@@ -62,7 +71,7 @@ const ContentItem: React.FC<IProps> = (props: IProps) => {
       variants={itemVariant}
       initial="hidden"
       animate={control}
-      className={className}
+      className={clsx(className,classes.item)}
       >
         <div>
           <div className="img">

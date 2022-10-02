@@ -104,7 +104,7 @@ const ChooseUs: React.FC = () => {
             return (
               <SwiperSlide key={index}>
                 <div className="item">
-                  <img src={reason.img} alt="choouse" />
+                  <img src={reason.img} alt="choose_use" />
                   <div>
                     <h5>{reason.title}</h5>
                     <div>
