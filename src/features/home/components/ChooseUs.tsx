@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import { free, japan, rating } from "images";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
+import SlideItem from "./SlideItem";
 SwiperCore.use([Autoplay,Pagination]);
 const useStyles = createUseStyles({
   grid: {
@@ -103,15 +104,11 @@ const ChooseUs: React.FC = () => {
           {reasons.map((reason, index) => {
             return (
               <SwiperSlide key={index}>
-                <div className="item">
-                  <img src={reason.img} alt="choose_use" />
-                  <div>
-                    <h5>{reason.title}</h5>
-                    <div>
-                      <p>{reason.text}</p>
-                    </div>
-                  </div>
-                </div>
+                <SlideItem imageUrl={reason.img}
+                title={reason.title}
+                text={reason.text}
+                delay={(index + 1) * 0.1}
+                />
               </SwiperSlide>
             );
           })}
