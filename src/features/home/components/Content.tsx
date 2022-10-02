@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import ReactPlayer from "react-player";
 import {
@@ -10,6 +10,9 @@ import {
   sayu,
   takagi,
 } from "images";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { ContentItem } from "components";
 
 const useStyles = createUseStyles({
   content: {
@@ -27,7 +30,7 @@ const useStyles = createUseStyles({
       position: "relative",
       cursor: "pointer",
     },
-    "& > .kanojou, & > .best__gril": {
+    "& > .kanojou, & > .best__girl": {
       gridColumn: "5 / span 2",
       position: "relative",
       cursor: "pointer",
@@ -69,97 +72,128 @@ const useStyles = createUseStyles({
     fontSize: "1.5rem",
   },
   "@media (max-width:640px)": {
-    content:{
-      "& > .pre__order, & > .takagi, & > .kanojou, & > .sanyu, & > .in__stock, & > .best__gril":{
-        gridColumn: "span 3",
-      }
+    content: {
+      "& > .pre__order, & > .takagi, & > .kanojou, & > .sanyu, & > .in__stock, & > .best__girl":
+        {
+          gridColumn: "span 3",
+        },
     },
-    pandoru:{
-      gridColumn:"span 3"
+    pandoru: {
+      gridColumn: "span 3",
     },
-    genshin:{
-      gridColumn:"span 3",
-      "& > div":{
-        height:"100%",
+    genshin: {
+      gridColumn: "span 3",
+      "& > div": {
+        height: "100%",
       },
-      "& img":{
-        height:"100%"
-      }
-    }
+      "& img": {
+        height: "100%",
+      },
+    },
   },
-  "@media (max-width:514px)":{
-    content:{
-      "& > .best__gril, & > .in__stock":{
-        gridColumn:"span 6"
-      }
-    }
-  }
+  "@media (max-width:514px)": {
+    content: {
+      "& > .best__girl, & > .in__stock": {
+        gridColumn: "span 6",
+      },
+    },
+  },
 });
+
+const itemVariant = {
+  visible: {
+    y: 0,
+    opacity: 1,
+
+    transition: { duration: 0.5, delay: 0.4 },
+  },
+  hidden: {
+    opacity: 0,
+    y: -250,
+    ease: "easeInOut",
+    transition: { duration: 0.5, delay: 0.4 },
+  },
+};
 const Content: React.FC = () => {
+  const control = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      control.start("visible");
+    } else {
+      control.start("hidden");
+    }
+  }, [control, inView]);
+
   let classes = useStyles();
   return (
     <>
       <h3>YOU NEED AT LEAST ONE THING</h3>
       <div className={classes.content}>
-        <div className={"pre__order"}>
-          <div className="img">
-            <img src={preorder} alt="pre-order" />
-          </div>
-          <div className={classes.text}>
-            <h5>Pre-order</h5>
-          </div>
-        </div>
-        <div className={"takagi"}>
-          <div className="img">
-            <img src={takagi} alt="takagi" />
-          </div>
-          <div className={classes.text}>
-            <h5>Takagi</h5>
-          </div>
-        </div>
-        <div className="kanojou">
-          <div className="img">
-            <img src={kanojou} alt="kanojou" />
-          </div>
-          <div className={classes.text}>
-            <h5>Rent-A-Girlfriend </h5>
-          </div>
-        </div>
-        <div className={classes.genshin}>
-          <div>
-            <img src={genshin} alt="genshin" />
-            <div className={classes.text}>
-              <h5>Genshin Impact</h5>
-            </div>
-          </div>
-        </div>
-        <div className={classes.pandoru}>
+        <ContentItem
+          className="pre__order"
+          imageUrl={preorder}
+          alt="per-order"
+          text="Pre-order"
+          delay={0}
+        />
+
+        <ContentItem
+          className="takagi"
+          imageUrl={takagi}
+          alt="takagi"
+          text="Takagi"
+          delay={0.1}
+        />
+
+        <ContentItem
+          className="kanojou"
+          imageUrl={kanojou}
+          alt="kanojou"
+          text="Rent-A-Girlfriend"
+          delay={0.2}
+        />
+
+        <ContentItem
+          className={classes.genshin}
+          imageUrl={genshin}
+          alt="genshin"
+          text="Genshin Impact"
+          delay={0.3}
+        />
+        <motion.div
+          className={classes.pandoru}
+          ref={ref}
+          variants={itemVariant}
+          initial="hidden"
+          animate={control}
+        >
           <ReactPlayer url="https://www.youtube.com/watch?v=PzrGGyPMfoo" />
-        </div>
-        <div className="sanyu">
-          <div className="img">
-            <img src={sayu} alt="sayu" />
-          </div>
-          <div className={classes.text}>
-            <h5>Sayu</h5>
-          </div>
-        </div>
-        <div className="in__stock">
-          <div className="img">
-            <img src={in_stock} alt="in_stock" />
-          </div>
-          <div className={classes.text}>
-            <h5>In stock</h5>
-          </div>
-        </div>
-        <div className="best__gril">
-          <div className="img">
-            <img src={best_girl} alt="best__girl" />
-          </div>
-          <div className={classes.text}>
-            <h5>Best girl</h5>
-          </div>
-        </div>
+        </motion.div>
+
+        <ContentItem
+          className="sanyu"
+          imageUrl={sayu}
+          alt="sayu"
+          text="Sayu"
+          delay={0.5}
+        />
+        <ContentItem
+          className="in__stock"
+          imageUrl={in_stock}
+          alt="in__stock"
+          text="In stock"
+          delay={0.6}
+        />
+
+        <ContentItem
+          className="best__girl"
+          imageUrl={best_girl}
+          alt="best__girl"
+          text="Best girl"
+          delay={0.6}
+        />
       </div>
     </>
   );

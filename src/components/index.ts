@@ -12,6 +12,7 @@ import Intro from "./intro";
 import Who from "./who";
 import DialogSlide from "./dialogSlide";
 import Item from "./Item";
+import ContentItem from "./ContentItem";
 export {
     MainHeader,
     Footer,
@@ -27,4 +28,5 @@ export {
     Who,
     DialogSlide,
     Item,
+    ContentItem
 };
