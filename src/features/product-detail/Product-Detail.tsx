@@ -31,7 +31,13 @@ const useStyles = createUseStyles({
     },
     grid:{
         display:"grid",
-        gridTemplateColumns:"repeat(12,1fr)"
+        gridTemplateColumns:"repeat(12,1fr)",
+        "& .quantity > select":{
+            borderRadius:"10px",
+            borderColor:"#ff9933",
+            width:"80px",
+            color:"#ff9933"
+        }
     },
     col_6:{
         gridColumn:"span 6",
@@ -79,7 +85,8 @@ const useStyles = createUseStyles({
         backgroundColor:"#fab818",
         "&:hover":{
             color: "white",
-            backgroundColor:"#B22D29"
+            backgroundColor:"#B22D29",
+            transform:"scale(1.1)"
         }
     },
     "@media (max-width:900px)":{

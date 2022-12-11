@@ -89,6 +89,7 @@ const useStyles = createUseStyles({
       "&:hover": {
         backgroundColor: "#B22D29",
         color: "white",
+        transform:"scale(1.1)"
       },
     },
     "& > input": {
@@ -103,6 +104,7 @@ const useStyles = createUseStyles({
         outline: "unset",
       },
     },
+
   },
   footer__content: {
     backgroundColor: "black",
@@ -240,7 +242,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="copyright">Copyright © 2021, WeFi</div>
+        <div className="copyright">Copyright © 2022, WeFi</div>
       </div>
       <div className="footer__image">
         <img src={footer_image} alt="footer__image" />
