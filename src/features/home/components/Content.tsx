@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { createUseStyles } from "react-jss";
 import ReactPlayer from "react-player";
 import {
@@ -13,6 +13,7 @@ import {
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ContentItem } from "components";
+import { Console } from "console";
 
 const useStyles = createUseStyles({
   content: {
@@ -55,7 +56,7 @@ const useStyles = createUseStyles({
     gridColumn: "4 / span 3",
     cursor: "pointer",
     position: "relative",
-    zIndex:-1,
+    zIndex: 0,
     "& > div": {
       width: "100% !important",
       height: "100% !important",
@@ -105,13 +106,13 @@ const itemVariant = {
   visible: {
     y: 0,
     opacity: 1,
-    filter:"blur(0px)",
+    filter: "blur(0px)",
     transition: { duration: 0.5, delay: 0.4 },
   },
   hidden: {
     opacity: 0,
     y: -250,
-    filter:"blur(50px)",
+    filter: "blur(50px)",
     ease: "easeInOut",
     transition: { duration: 0.5, delay: 0.4 },
   },
@@ -119,6 +120,7 @@ const itemVariant = {
 const Content: React.FC = () => {
   const control = useAnimation();
   const [ref, inView] = useInView();
+  const [isPlaying, setPlay] = useState(false);
 
   useEffect(() => {
     if (inView) {
@@ -129,6 +131,11 @@ const Content: React.FC = () => {
   }, [control, inView]);
 
   let classes = useStyles();
+
+  let playVideo = () =>{
+    setPlay(!isPlaying);
+  }
+
   return (
     <>
       <h3>YOU NEED AT LEAST ONE THING</h3>
@@ -166,7 +173,7 @@ const Content: React.FC = () => {
           alt="genshin"
           text="Genshin Impact"
           delay={0.3}
-          zIndex ={-1}
+          zIndex={0}
         />
         <motion.div
           className={classes.pandoru}
@@ -174,8 +181,9 @@ const Content: React.FC = () => {
           variants={itemVariant}
           initial="hidden"
           animate={control}
+          onTap={playVideo}
         >
-          <ReactPlayer url="https://www.youtube.com/watch?v=PzrGGyPMfoo" />
+          <ReactPlayer playing={isPlaying} url="https://www.youtube.com/watch?v=PzrGGyPMfoo" />
         </motion.div>
 
         <ContentItem
@@ -184,7 +192,7 @@ const Content: React.FC = () => {
           alt="sayu"
           text="Sayu"
           delay={0.5}
-          zIndex = {-2}
+          zIndex={0}
         />
         <ContentItem
           className="in__stock"
@@ -192,16 +200,16 @@ const Content: React.FC = () => {
           alt="in__stock"
           text="In stock"
           delay={0.6}
-          zIndex= {-2}
+          zIndex={0}
         />
-
+        
         <ContentItem
           className="best__girl"
           imageUrl={best_girl}
           alt="best__girl"
           text="Best girl"
           delay={0.6}
-          zIndex={-2}
+          zIndex={0}
         />
       </div>
     </>
